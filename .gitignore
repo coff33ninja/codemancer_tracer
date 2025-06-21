@@ -1,0 +1,4 @@
+/.venv
+/.vscode
+/codemancer_tracer_package/__pycache__
+/codemancer_tracer_package/utils/__pycache__

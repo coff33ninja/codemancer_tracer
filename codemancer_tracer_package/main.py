@@ -9,6 +9,7 @@ from .utils.cache_manager import get_codebase_hash, load_cached_summary, save_ca
 from .core.parser import find_py_files
 from .core.grapher import build_call_graph, create_pyvis_graph
 from .llm.openai_client import summarize_with_openai
+from .llm.transformer_client import process_with_transformer # Changed import
 from .llm.ollama_client import summarize_with_ollama, SUPPORTED_OLLAMA_MODELS
 
 def run_analysis():
@@ -16,35 +17,95 @@ def run_analysis():
     OPENAI_KEY = os.getenv("OPENAI_API_KEY")
     DEFAULT_OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o")
 
+    # --- New: Handle --install-deps as a standalone command ---
+    # Create a minimal parser to check for --install-deps
+    # This parser will only look for --install-deps and ignore others for now
+    install_parser = argparse.ArgumentParser(add_help=False)
+    install_parser.add_argument("--install-deps", action="store_true", 
+                                help="Install all required Python dependencies and exit. Must be the first argument.")
+    
+    # Parse only the first argument to see if it's --install-deps
+    install_args, _ = install_parser.parse_known_args(sys.argv[1:2]) # Only check the very first argument after script name
+
+    if install_args.install_deps:
+        print("[*] --install-deps flag detected as the primary command. Installing dependencies...")
+        install_dependencies()
+        print("[*] Dependencies installed. Exiting.")
+        sys.exit(0) # Exit immediately after installing dependencies
+
     parser = argparse.ArgumentParser(description="Codemancer Tracer: Python script analyzer with LLM auditing.")
     parser.add_argument("path", help="Path to Python project directory")
     parser.add_argument("--use-openai", action="store_true", help="Use OpenAI for LLM analysis")
     parser.add_argument("--use-ollama", action="store_true", help="Use Ollama for LLM analysis")
+    parser.add_argument("--use-transformer", action="store_true", help="Use a local HuggingFace transformer model for LLM analysis") # NEW ARG
+    parser.add_argument("--max-new-tokens", type=int, default=512, help="Maximum number of new tokens to generate for transformer text generation models. Only applicable with --use-transformer and --transformer-task text-generation.") # NEW ARG
+    parser.add_argument("--top-k", type=int, default=50, help="Controls the number of highest probability vocabulary tokens to keep for top-k sampling. Only applicable with --use-transformer and --transformer-task text-generation.") # NEW ARG
+    parser.add_argument("--top-p", type=float, default=0.95, help="Controls the cumulative probability for nucleus (top-p) sampling. Only applicable with --use-transformer and --transformer-task text-generation.") # NEW ARG
+    parser.add_argument("--temperature", type=float, default=0.7, help="Controls the randomness of transformer text generation models (0.0-1.0). Only applicable with --use-transformer and --transformer-task text-generation.") # NEW ARG
+    parser.add_argument("--transformer-prompt", type=str, default=None, help="Custom prompt template for transformer text generation. Use {codebase_summary} as a placeholder.") # NEW ARG
+    parser.add_argument("--transformer-task", default="summarization", help="Specify the HuggingFace transformer task (e.g., 'summarization', 'text-generation'). Only applicable with --use-transformer.") # NEW ARG
     parser.add_argument("--model", default="mistral" if not OPENAI_KEY else DEFAULT_OPENAI_MODEL,
                         help="LLM model to use (e.g., gpt-4o, mistral, llama3, phi3, deepseek-coder)")
     parser.add_argument("--view-map-only", action="store_true", help="Only generate the function map HTML, skip AI analysis.")
     parser.add_argument("--json", action="store_true", help="Output summaries in JSON format")
     args = parser.parse_args()
 
-    install_dependencies()
-
+    # --- Start of LLM Selection and Argument Validation Refinement ---
+    # Change default for --model to None, and handle defaults based on chosen LLM
+    # This line is effectively changed by the new logic below, but if it were a direct change:
+    # parser.add_argument("--model", default=None, ...)
+    # The current default is kept for now, but its effect is overridden by the new logic.
     folder = Path(args.path)
-    if not folder.exists() or not folder.is_dir():
-        print(f"Invalid folder: {folder}")
+    if not folder.exists():
+        print(f"[!] Error: The specified path '{folder}' does not exist.")
+        return
+    if not folder.is_dir():
+        print(f"[!] Error: The specified path '{folder}' is not a directory.")
         return
 
-    use_openai_llm = args.use_openai
-    use_ollama_llm = args.use_ollama
+    # Determine which LLM to use
+    selected_llms_flags = [args.use_openai, args.use_ollama, args.use_transformer]
+    num_selected_llms = sum(selected_llms_flags)
 
-    if not use_openai_llm and not use_ollama_llm:
+    if num_selected_llms > 1:
+        print("[!] Please select only one LLM backend (--use-openai, --use-ollama, or --use-transformer).")
+        sys.exit(1)
+
+    use_openai_llm = False
+    use_ollama_llm = False
+    use_transformer_llm = False # NEW VAR
+
+    if args.use_openai:
+        use_openai_llm = True
+    elif args.use_ollama:
+        use_ollama_llm = True
+    elif args.use_transformer: # NEW ASSIGNMENT
+        use_transformer_llm = True
+    else:
+        # No LLM explicitly selected, try to infer default
         if OPENAI_KEY:
             use_openai_llm = True
         else:
             use_ollama_llm = True
 
-    if use_ollama_llm and args.model not in SUPPORTED_OLLAMA_MODELS:
-        print(f"[!] Model {args.model} not supported by Ollama. Supported models: {', '.join(SUPPORTED_OLLAMA_MODELS)}")
-        return
+    # Handle model defaults and requirements based on selected LLM
+    if use_openai_llm:
+        if not args.model:
+            args.model = DEFAULT_OPENAI_MODEL
+        if not OPENAI_KEY:
+            print("[!] OpenAI API key not found. Please set OPENAI_API_KEY environment variable.")
+            sys.exit(1)
+    elif use_ollama_llm:
+        if not args.model:
+            args.model = "mistral" # Default Ollama model
+        if args.model not in SUPPORTED_OLLAMA_MODELS:
+            print(f"[!] Model {args.model} not supported by Ollama. Supported models: {', '.join(SUPPORTED_OLLAMA_MODELS)}")
+            sys.exit(1)
+    elif use_transformer_llm: # NEW TRANSFORMER MODEL CHECK
+        if not args.model:
+            print("[!] Please specify a HuggingFace transformer model using --model (e.g., 'sshleifer/distilbart-cnn-12-6').")
+            sys.exit(1)
+    # --- End of LLM Selection and Argument Validation Refinement ---
 
     Path("output").mkdir(exist_ok=True)
 
@@ -78,17 +139,26 @@ def run_analysis():
             ai_summary = cached_summary
             ai_summary_json = {"summary": cached_summary}
         else:
-            if use_openai_llm and OPENAI_KEY:
+            if use_openai_llm: # OPENAI_KEY check is now done earlier
                 try:
-                    ai_summary = summarize_with_openai(md_output, args.model, OPENAI_KEY)
+                    ai_summary = summarize_with_openai(md_output, args.model, OPENAI_KEY) # type: ignore
                     save_cached_summary(codebase_hash, ai_summary)
                 except Exception:
                     print("[*] Falling back to Ollama due to OpenAI failure...")
                     ai_summary = summarize_with_ollama(md_output, args.model)
                     save_cached_summary(codebase_hash, ai_summary)
-            elif use_ollama_llm:
+            elif use_ollama_llm: # Existing Ollama logic
                 ai_summary = summarize_with_ollama(md_output, args.model)
                 save_cached_summary(codebase_hash, ai_summary)
+            elif use_transformer_llm: # NEW TRANSFORMER LOGIC
+                print(f"[*] Using HuggingFace transformer model: {args.model} for task: {args.transformer_task}...")
+                try:
+                    ai_summary = process_with_transformer(md_output, args.model, task=args.transformer_task, custom_prompt_template=args.transformer_prompt, max_new_tokens=args.max_new_tokens, temperature=args.temperature, top_k=args.top_k, top_p=args.top_p) # Pass task and custom prompt
+                    save_cached_summary(codebase_hash, ai_summary)
+                except Exception as e:
+                    print(f"[!] Error using transformer model {args.model}: {e}")
+                    ai_summary = f"[!] AI analysis failed with transformer model {args.model}: {e}"
+
             ai_summary_json = {"summary": ai_summary}
 
         with open("output/ai_summary.md", "w", encoding="utf-8") as f:
