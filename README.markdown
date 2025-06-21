@@ -80,6 +80,42 @@ python -m codemancer_tracer_package.main /path/to/python/project [options]
 
 ---
 
+## ⚡ Dependency Installation (with or without venv)
+
+Before running any analysis, install all dependencies. The script supports both CPU and GPU (CUDA) environments and can auto-install the correct PyTorch wheels for your GPU.
+
+### With venv (recommended on Windows):
+
+```powershell
+# Create and activate a virtual environment (if not already)
+python -m venv .venv
+.\.venv\Scripts\activate
+
+# Install dependencies for Nvidia 10 series (CUDA 12.1):
+.\.venv\Scripts\python.exe -m codemancer_tracer_package.main --install-deps --gpu-10-series --path E:\SCRIPTS\voice_assistant
+
+# For Nvidia 20/30/40 series (CUDA 12.2):
+.\.venv\Scripts\python.exe -m codemancer_tracer_package.main --install-deps --gpu-20plus-series --path E:\SCRIPTS\voice_assistant
+
+# For CPU-only (no GPU):
+.\.venv\Scripts\python.exe -m codemancer_tracer_package.main --install-deps --path E:\SCRIPTS\voice_assistant
+```
+
+### Without venv (system Python):
+
+```powershell
+# Install dependencies for Nvidia 10 series (CUDA 12.1):
+python -m codemancer_tracer_package.main --install-deps --gpu-10-series --path E:\SCRIPTS\voice_assistant
+
+# For Nvidia 20/30/40 series (CUDA 12.2):
+python -m codemancer_tracer_package.main --install-deps --gpu-20plus-series --path E:\SCRIPTS\voice_assistant
+
+# For CPU-only (no GPU):
+python -m codemancer_tracer_package.main --install-deps --path E:\SCRIPTS\voice_assistant
+```
+
+---
+
 ## 🧠 LLM Behavior
 
 The script selects the LLM backend based on:
@@ -157,3 +193,29 @@ Crafted by wizards who see code as spells.
 ## 📜 License
 
 MIT — use it, share it, fork it, enchant it.
+
+---
+
+## GPU Support (NVIDIA GTX 1070, Python 3.11)
+
+This project supports GPU acceleration for transformer models using PyTorch and CUDA.
+
+### Requirements
+- NVIDIA GTX 1070 (CUDA Compute Capability 6.1)
+- CUDA Toolkit 12.x (or latest supported by your driver)
+- Python 3.11
+- PyTorch with CUDA support (see below)
+
+### Installation
+To install PyTorch with CUDA 12.x for Python 3.11:
+
+```sh
+pip install torch==2.2.2+cu121 torchvision==0.17.2+cu121 torchaudio==2.2.2+cu121 --index-url https://download.pytorch.org/whl/cu121
+```
+
+See the [PyTorch Get Started](https://pytorch.org/get-started/locally/) page for the latest instructions and compatibility.
+
+### Verifying GPU Support
+The codebase includes a helper (`ensure_gpu_ready`) in `transformer_client.py` to log CUDA device info and verify GPU availability.
+
+If CUDA is not available, computation will fall back to CPU automatically.

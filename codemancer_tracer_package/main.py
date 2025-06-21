@@ -5,12 +5,6 @@ import json
 from pathlib import Path
 from dotenv import load_dotenv
 from .utils.dependency_manager import install_dependencies
-from .utils.cache_manager import get_codebase_hash, load_cached_summary, save_cached_summary
-from .core.parser import find_py_files
-from .core.grapher import build_call_graph, create_pyvis_graph
-from .llm.openai_client import summarize_with_openai
-from .llm.transformer_client import process_with_transformer # Changed import
-from .llm.ollama_client import summarize_with_ollama, SUPPORTED_OLLAMA_MODELS
 
 def run_analysis():
     load_dotenv()
@@ -23,15 +17,34 @@ def run_analysis():
     install_parser = argparse.ArgumentParser(add_help=False)
     install_parser.add_argument("--install-deps", action="store_true", 
                                 help="Install all required Python dependencies and exit. Must be the first argument.")
+    install_parser.add_argument("--gpu", action="store_true", help="Install GPU-enabled torch/torchvision/torchaudio (CUDA) if available.")
+    install_parser.add_argument("--gpu-10-series", action="store_true", help="Force install for Nvidia 10 series (GTX, CUDA 12.1)")
+    install_parser.add_argument("--gpu-20plus-series", action="store_true", help="Force install for Nvidia 20/30/40 series (RTX, CUDA 12.2)")
     
-    # Parse only the first argument to see if it's --install-deps
-    install_args, _ = install_parser.parse_known_args(sys.argv[1:2]) # Only check the very first argument after script name
+    # Parse all arguments to see if --install-deps and related flags are present
+    install_args, _ = install_parser.parse_known_args(sys.argv[1:]) # Parse all args, not just the first
 
     if install_args.install_deps:
         print("[*] --install-deps flag detected as the primary command. Installing dependencies...")
-        install_dependencies()
+        gpu_series = None
+        gpu_flag = install_args.gpu
+        if getattr(install_args, 'gpu_10_series', False):
+            gpu_series = '10'
+            gpu_flag = True
+        elif getattr(install_args, 'gpu_20plus_series', False):
+            gpu_series = '20+'
+            gpu_flag = True
+        install_dependencies(gpu=gpu_flag, gpu_series=gpu_series)
         print("[*] Dependencies installed. Exiting.")
         sys.exit(0) # Exit immediately after installing dependencies
+
+    # All other imports must come here, before any code that uses them
+    from .utils.cache_manager import get_codebase_hash, load_cached_summary, save_cached_summary
+    from .core.parser import find_py_files
+    from .core.grapher import build_call_graph, create_pyvis_graph
+    from .llm.openai_client import summarize_with_openai
+    from .llm.transformer_client import process_with_transformer
+    from .llm.ollama_client import summarize_with_ollama, SUPPORTED_OLLAMA_MODELS
 
     parser = argparse.ArgumentParser(description="Codemancer Tracer: Python script analyzer with LLM auditing.")
     parser.add_argument("path", help="Path to Python project directory")

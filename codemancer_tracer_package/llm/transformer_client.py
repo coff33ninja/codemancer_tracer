@@ -3,6 +3,31 @@ from typing import Optional # New import for Optional
 
 logger = logging.getLogger(__name__)
 
+# GPU Support Helper for CUDA Devices
+def log_cuda_info():
+    try:
+        import torch
+        if torch.cuda.is_available():
+            device_count = torch.cuda.device_count()
+            devices = [torch.cuda.get_device_name(i) for i in range(device_count)]
+            logger.info(f"CUDA is available. {device_count} device(s) detected: {devices}")
+        else:
+            logger.info("CUDA is not available. Running on CPU.")
+    except ImportError:
+        logger.warning("torch is not installed. Cannot check CUDA info.")
+
+# Call this at startup or before running transformer pipelines
+def ensure_gpu_ready():
+    try:
+        import torch
+        log_cuda_info()
+        if torch.cuda.is_available():
+            logger.info(f"Current device: {torch.cuda.current_device()} - {torch.cuda.get_device_name(torch.cuda.current_device())}")
+        else:
+            logger.warning("No CUDA device detected. Computation will run on CPU.")
+    except ImportError:
+        logger.warning("torch is not installed. Cannot check CUDA device.")
+
 def process_with_transformer(md_output: str, model_name: str, task: str = "summarization", custom_prompt_template: Optional[str] = None, **kwargs) -> str:
     """
     Processes the provided markdown output using a HuggingFace transformer model
@@ -13,7 +38,6 @@ def process_with_transformer(md_output: str, model_name: str, task: str = "summa
         try:
             from transformers.pipelines import pipeline
             from transformers.trainer_utils import set_seed
-            import torch
         except ModuleNotFoundError as e:
             raise ModuleNotFoundError(
                 f"Missing required dependencies for HuggingFace Transformers. "
@@ -21,7 +45,10 @@ def process_with_transformer(md_output: str, model_name: str, task: str = "summa
                 f"Original error: {e}"
             ) from e
 
+        ensure_gpu_ready()  # Check and log GPU availability
+
         # Check for GPU availability and set the device accordingly.
+        import torch
         if torch.cuda.is_available():
             device = 0  # Use the first available GPU
             logger.info("CUDA is available. Using GPU for transformer pipeline.")
