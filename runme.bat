@@ -1,0 +1,1 @@
+python -m codemancer_tracer_package.main "E:\voice_asisstant" --use-ollama --model llama3 --json

@@ -1,0 +1,3 @@
+# AI-Powered Code Analysis
+
+[!] Failed to run or pull model llama3 with Ollama: Command 'ollama pull llama3' returned non-zero exit status 1.

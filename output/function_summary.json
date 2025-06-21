@@ -1,0 +1,5181 @@
+{
+  "setup_assistant": {
+    "functions": [
+      "yes_no_prompt(prompt_text)",
+      "load_checkpoints()",
+      "save_checkpoints(checkpoints)",
+      "main()",
+      "lazy_create_dataset(dataset_path)",
+      "lazy_fine_tune_model(dataset_path, model_save_path)"
+    ],
+    "imports": [
+      "TTS.api",
+      "TTS.config.shared_configs",
+      "TTS.tts.configs.xtts_config",
+      "TTS.tts.models.xtts",
+      "dotenv",
+      "importlib",
+      "json",
+      "modules.api_key_setup",
+      "modules.config",
+      "modules.dataset",
+      "modules.db_setup",
+      "modules.device_detector",
+      "modules.download_and_models",
+      "modules.install_dependencies",
+      "modules.model_training",
+      "modules.utils",
+      "os",
+      "sounddevice",
+      "subprocess",
+      "sys",
+      "torch"
+    ],
+    "calls": {
+      "__module__": [
+        "print",
+        "print",
+        "subprocess.check_call",
+        "print",
+        "importlib.invalidate_caches",
+        "print",
+        "print",
+        "print",
+        "sys.exit",
+        "print",
+        "print",
+        "sys.exit",
+        "print",
+        "sys.exit",
+        "os.path.join",
+        "main"
+      ],
+      "yes_no_prompt(prompt_text)": [
+        "input",
+        "print"
+      ],
+      "load_checkpoints()": [
+        "os.path.exists",
+        "open",
+        "json.load",
+        "print",
+        "print"
+      ],
+      "save_checkpoints(checkpoints)": [
+        "open",
+        "json.dump"
+      ],
+      "main()": [
+        "print",
+        "load_dotenv",
+        "print",
+        "create_directories",
+        "str",
+        "load_checkpoints",
+        "print",
+        "step_name.replace",
+        "checkpoints.get",
+        "func_to_call",
+        "print",
+        "save_checkpoints",
+        "print",
+        "yes_no_prompt",
+        "print",
+        "print",
+        "step_name.replace",
+        "func_to_call",
+        "print",
+        "step_name.replace",
+        "print",
+        "load_dotenv",
+        "print",
+        "print",
+        "step_name.replace",
+        "input",
+        "print",
+        "print",
+        "print",
+        "save_checkpoints",
+        "print",
+        "save_checkpoints",
+        "print",
+        "all",
+        "checkpoints.get",
+        "print",
+        "yes_no_prompt",
+        "print",
+        "yes_no_prompt",
+        "yes_no_prompt",
+        "save_checkpoints",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "load_dotenv",
+        "os.getenv",
+        "float",
+        "os.getenv",
+        "str",
+        "int",
+        "os.getenv",
+        "str",
+        "current_tts_model.lower",
+        "print",
+        "safe_globals_to_add.append",
+        "print",
+        "print",
+        "print",
+        "safe_globals_to_add.append",
+        "print",
+        "print",
+        "print",
+        "safe_globals_to_add.append",
+        "print",
+        "print",
+        "print",
+        "safe_globals_to_add.append",
+        "print",
+        "print",
+        "print",
+        "getattr",
+        "hasattr",
+        "serialization_mod.add_safe_globals",
+        "print",
+        "len",
+        "print",
+        "print",
+        "print",
+        "CoquiTTS",
+        "print",
+        "print",
+        "current_tts_model.lower",
+        "print",
+        "current_tts_model.lower",
+        "current_tts_model.lower",
+        "print",
+        "os.path.exists",
+        "print",
+        "print",
+        "print",
+        "print",
+        "tts_instance_final.tts",
+        "hasattr",
+        "hasattr",
+        "print",
+        "sd.play",
+        "sd.wait",
+        "print",
+        "yes_no_prompt",
+        "print",
+        "subprocess.Popen",
+        "sys.exit",
+        "print",
+        "print",
+        "print"
+      ],
+      "lazy_create_dataset(dataset_path)": [
+        "actual_create_dataset"
+      ],
+      "lazy_fine_tune_model(dataset_path, model_save_path)": [
+        "actual_fine_tune_model"
+      ]
+    }
+  },
+  "voice_assistant": {
+    "functions": [
+      "task_name(task)",
+      "on_wakeword_detected()",
+      "run_assistant()"
+    ],
+    "imports": [
+      "asyncio",
+      "logging",
+      "modules.audio_utils",
+      "modules.contractions",
+      "modules.db_manager",
+      "modules.file_watcher_service",
+      "modules.intent_classifier",
+      "modules.intent_logic",
+      "modules.llm_service",
+      "modules.stt_service",
+      "modules.tts_service",
+      "modules.weather_service",
+      "nest_asyncio",
+      "platform",
+      "threading",
+      "typing",
+      "wakeword_detector",
+      "warnings"
+    ],
+    "calls": {
+      "__module__": [
+        "logging.basicConfig",
+        "logging.getLogger",
+        "warnings.filterwarnings",
+        "warnings.filterwarnings",
+        "warnings.filterwarnings",
+        "warnings.filterwarnings",
+        "logging.getLogger",
+        "logging.getLogger",
+        "get_response",
+        "logging.info",
+        "text_to_speech_async",
+        "asyncio.wait_for",
+        "record_audio_async",
+        "logging.warning",
+        "text_to_speech_async",
+        "logging.error",
+        "text_to_speech_async",
+        "audio_data.any",
+        "logging.warning",
+        "text_to_speech_async",
+        "get_response",
+        "transcribe_audio_async",
+        "transcription.strip",
+        "logging.info",
+        "text_to_speech_async",
+        "get_response",
+        "logging.info",
+        "process_command",
+        "logging.error",
+        "text_to_speech_async",
+        "loop.create_task",
+        "reminder_check_loop",
+        "background_tasks.append",
+        "threading.Thread",
+        "watcher_thread.start",
+        "logging.info",
+        "asyncio.Event",
+        "current_wakeword_task.done",
+        "current_wakeword_task.cancel",
+        "loop.create_task",
+        "run_wakeword_async",
+        "wake_event.wait",
+        "logging.info",
+        "current_wakeword_task.cancel",
+        "handle_interaction",
+        "logging.info",
+        "logging.error",
+        "logging.info",
+        "logging.info",
+        "current_wakeword_task.done",
+        "current_wakeword_task.cancel",
+        "logging.info",
+        "task.done",
+        "task.cancel",
+        "logging.info",
+        "task_name",
+        "logging.error",
+        "task_name",
+        "logging.info",
+        "logging.info",
+        "run_assistant"
+      ],
+      "task_name(task)": [
+        "task.get_name",
+        "str"
+      ],
+      "on_wakeword_detected()": [
+        "loop.is_running",
+        "wake_event.is_set",
+        "loop.call_soon_threadsafe"
+      ],
+      "run_assistant()": [
+        "logging.info",
+        "platform.system",
+        "nest_asyncio.apply",
+        "asyncio.get_event_loop",
+        "logging.info",
+        "initialize_stt",
+        "initialize_tts",
+        "initialize_weather_service",
+        "initialize_llm",
+        "initialize_intent_classifier",
+        "initialize_db",
+        "logging.info",
+        "loop.create_task",
+        "main_loop",
+        "loop.run_until_complete",
+        "logging.info",
+        "main_task.done",
+        "main_task.cancel",
+        "loop.run_until_complete",
+        "logging.info",
+        "logging.error",
+        "logging.error",
+        "logging.critical",
+        "main_task.done",
+        "main_task.cancel",
+        "loop.is_running",
+        "loop.run_until_complete",
+        "logging.info",
+        "asyncio.all_tasks",
+        "asyncio.current_task",
+        "t.done",
+        "logging.info",
+        "len",
+        "task.cancel",
+        "loop.is_running",
+        "loop.run_until_complete",
+        "asyncio.gather",
+        "logging.info",
+        "loop.is_closed",
+        "loop.close",
+        "logging.info"
+      ]
+    }
+  },
+  "wakeword_detector": {
+    "functions": [
+      "get_porcupine_key()",
+      "test_callback()"
+    ],
+    "imports": [
+      "asyncio",
+      "logging",
+      "modules.config",
+      "os",
+      "precise_runner",
+      "pvporcupine",
+      "sounddevice"
+    ],
+    "calls": {
+      "__module__": [
+        "logging.getLogger",
+        "os.path.exists",
+        "FileNotFoundError",
+        "PreciseEngine",
+        "PreciseRunner",
+        "asyncio.to_thread",
+        "asyncio.sleep",
+        "logger.error",
+        "locals",
+        "logger.info",
+        "runner.stop",
+        "logger.info",
+        "asyncio.to_thread",
+        "logger.info",
+        "logger.info",
+        "sd.InputStream",
+        "asyncio.to_thread",
+        "logger.info",
+        "asyncio.to_thread",
+        "logger.warning",
+        "audio_data.flatten",
+        "asyncio.to_thread",
+        "logger.info",
+        "callback",
+        "asyncio.sleep",
+        "logger.error",
+        "logger.error",
+        "logger.error",
+        "logger.info",
+        "asyncio.to_thread",
+        "asyncio.to_thread",
+        "logger.info",
+        "asyncio.to_thread",
+        "get_porcupine_key",
+        "os.path.exists",
+        "logger.info",
+        "logger.info",
+        "detect_wakeword_porcupine",
+        "logger.error",
+        "logger.info",
+        "logger.info",
+        "os.path.exists",
+        "logger.info",
+        "logger.info",
+        "logger.info",
+        "detect_wakeword_precise",
+        "logger.error",
+        "detect_wakeword",
+        "asyncio.run",
+        "run_wakeword_async"
+      ],
+      "get_porcupine_key()": [
+        "get_picovoice_key_from_config",
+        "os.path.exists",
+        "open",
+        "f.read"
+      ],
+      "test_callback()": [
+        "logger.info"
+      ]
+    }
+  },
+  "api_key_setup": {
+    "functions": [
+      "setup_api_key(key_file_path, service_name, prompt_message)"
+    ],
+    "imports": [
+      "getpass",
+      "os",
+      "typing"
+    ],
+    "calls": {
+      "setup_api_key(key_file_path, service_name, prompt_message)": [
+        "os.path.exists",
+        "getpass.getpass",
+        "os.makedirs",
+        "os.path.dirname",
+        "open",
+        "f.write",
+        "print",
+        "print"
+      ]
+    }
+  },
+  "audio_utils": {
+    "functions": [
+      "record_audio(sample_rate, duration)"
+    ],
+    "imports": [
+      "asyncio",
+      "config",
+      "numpy",
+      "sounddevice"
+    ],
+    "calls": {
+      "__module__": [
+        "print",
+        "asyncio.to_thread",
+        "int",
+        "asyncio.to_thread",
+        "print",
+        "recording_data.flatten"
+      ],
+      "record_audio(sample_rate, duration)": [
+        "print",
+        "sd.rec",
+        "int",
+        "sd.wait",
+        "print",
+        "recording.flatten"
+      ]
+    }
+  },
+  "calendar_utils": {
+    "functions": [
+      "add_event_to_calendar(summary, start, end, description)",
+      "get_calendar_file_path()"
+    ],
+    "imports": [
+      "datetime",
+      "ics",
+      "os",
+      "typing"
+    ],
+    "calls": {
+      "__module__": [
+        "os.path.join",
+        "os.path.dirname",
+        "os.path.dirname"
+      ],
+      "add_event_to_calendar(summary, start, end, description)": [
+        "datetime.timedelta",
+        "os.path.exists",
+        "open",
+        "Calendar",
+        "f.read",
+        "Calendar",
+        "Event",
+        "c.events.add",
+        "open",
+        "f.writelines",
+        "c.serialize_iter"
+      ]
+    }
+  },
+  "config": {
+    "functions": [
+      "get_picovoice_key()",
+      "get_openweather_api_key()"
+    ],
+    "imports": [
+      "dotenv",
+      "logging",
+      "os"
+    ],
+    "calls": {
+      "__module__": [
+        "logging.basicConfig",
+        "logging.getLogger",
+        "load_dotenv",
+        "os.path.dirname",
+        "os.path.abspath",
+        "os.path.join",
+        "os.path.join",
+        "os.path.join",
+        "os.path.join",
+        "os.path.join",
+        "os.path.join",
+        "os.path.join",
+        "os.path.join",
+        "os.path.join",
+        "os.path.join",
+        "os.path.join",
+        "os.path.join",
+        "os.path.join",
+        "os.getenv",
+        "os.getenv",
+        "os.getenv",
+        "logger.info",
+        "logger.info",
+        "logger.info",
+        "os.getenv",
+        "float",
+        "os.getenv",
+        "os.getenv",
+        "os.getenv",
+        "os.getenv"
+      ],
+      "get_picovoice_key()": [
+        "os.getenv"
+      ],
+      "get_openweather_api_key()": [
+        "os.getenv"
+      ]
+    }
+  },
+  "config_env": {
+    "functions": [],
+    "imports": [
+      "dotenv",
+      "os"
+    ],
+    "calls": {
+      "__module__": [
+        "load_dotenv",
+        "os.getenv"
+      ]
+    }
+  },
+  "contractions": {
+    "functions": [
+      "load_json_map(filename)",
+      "load_word_list_from_file(filename)",
+      "_load_and_compile_normalization_data()",
+      "reload_normalization_data()",
+      "normalize_text(text)",
+      "replace_contraction(match)",
+      "replace_misspelling(match)"
+    ],
+    "imports": [
+      "json",
+      "logging",
+      "os",
+      "re",
+      "spellchecker"
+    ],
+    "calls": {
+      "__module__": [
+        "logging.getLogger",
+        "os.path.dirname",
+        "os.path.abspath",
+        "os.path.join",
+        "_load_and_compile_normalization_data"
+      ],
+      "load_json_map(filename)": [
+        "os.path.join",
+        "open",
+        "json.load",
+        "logger.warning",
+        "logger.error"
+      ],
+      "load_word_list_from_file(filename)": [
+        "os.path.join",
+        "open",
+        "line.strip",
+        "line.strip",
+        "logger.warning"
+      ],
+      "_load_and_compile_normalization_data()": [
+        "load_json_map",
+        "load_json_map",
+        "load_word_list_from_file",
+        "re.compile",
+        "map",
+        "CONTRACTIONS.keys",
+        "re.compile",
+        "map",
+        "COMMON_MISSPELLINGS.keys",
+        "SpellChecker",
+        "spell.word_frequency.load_words",
+        "logger.info",
+        "logger.warning"
+      ],
+      "reload_normalization_data()": [
+        "logger.info",
+        "_load_and_compile_normalization_data"
+      ],
+      "replace_contraction(match)": [
+        "match.group",
+        "CONTRACTIONS.get",
+        "word.lower"
+      ],
+      "replace_misspelling(match)": [
+        "match.group",
+        "COMMON_MISSPELLINGS.get",
+        "word.lower"
+      ],
+      "normalize_text(text)": [
+        "CONTRACTION_RE.sub",
+        "MISSPELLING_RE.sub",
+        "text.split",
+        "spell.unknown",
+        "corrected_words.append",
+        "spell.correction",
+        "spell.correction"
+      ]
+    }
+  },
+  "dataset": {
+    "functions": [
+      "create_dataset(dataset_path)"
+    ],
+    "imports": [
+      "pandas"
+    ],
+    "calls": {
+      "create_dataset(dataset_path)": [
+        "pd.read_csv",
+        "df.to_csv",
+        "print"
+      ]
+    }
+  },
+  "db_manager": {
+    "functions": [
+      "initialize_db()",
+      "_save()",
+      "_fetch()"
+    ],
+    "imports": [
+      "asyncio",
+      "config",
+      "datetime",
+      "sqlite3"
+    ],
+    "calls": {
+      "initialize_db()": [
+        "print",
+        "sqlite3.connect",
+        "conn.cursor",
+        "cursor.execute",
+        "conn.commit",
+        "conn.close",
+        "print"
+      ],
+      "_save()": [
+        "sqlite3.connect",
+        "conn.cursor",
+        "cursor.execute",
+        "reminder_time.isoformat",
+        "datetime.now",
+        "conn.commit",
+        "conn.close"
+      ],
+      "__module__": [
+        "asyncio.to_thread",
+        "asyncio.to_thread",
+        "print",
+        "sqlite3.connect",
+        "conn.cursor",
+        "datetime.now",
+        "cursor.execute",
+        "cursor.fetchall",
+        "print",
+        "tts_service_speak_async_callback",
+        "cursor.execute",
+        "conn.commit",
+        "conn.close",
+        "asyncio.sleep"
+      ],
+      "_fetch()": [
+        "sqlite3.connect",
+        "conn.cursor",
+        "target_date.isoformat",
+        "cursor.execute",
+        "cursor.fetchall",
+        "reminders_on_date.append",
+        "datetime.fromisoformat",
+        "print",
+        "conn.close"
+      ]
+    }
+  },
+  "db_setup": {
+    "functions": [
+      "setup_db(DB_PATH)"
+    ],
+    "imports": [
+      "sqlite3"
+    ],
+    "calls": {
+      "setup_db(DB_PATH)": [
+        "sqlite3.connect",
+        "conn.cursor",
+        "cursor.execute",
+        "conn.commit",
+        "conn.close"
+      ]
+    }
+  },
+  "device_detector": {
+    "functions": [
+      "get_cpu_info()",
+      "get_gpu_info()",
+      "detect_cuda_with_torch()",
+      "get_cuda_device_name_with_torch()",
+      "recommend_torch_version()",
+      "detect_cpu_vendor()",
+      "write_env_file(settings, base_dir_path, asr_device, tts_device)",
+      "install_pytorch_version(torch_version_str)",
+      "run_device_setup(base_dir_path_str)"
+    ],
+    "imports": [
+      "GPUtil",
+      "logging",
+      "pathlib",
+      "platform",
+      "subprocess",
+      "sys",
+      "torch"
+    ],
+    "calls": {
+      "__module__": [
+        "logging.getLogger",
+        "logger.info",
+        "subprocess.run",
+        "logger.info",
+        "logger.error",
+        "logger.error",
+        "logger.error",
+        "logger.error",
+        "logging.basicConfig",
+        "Path.cwd",
+        "run_device_setup",
+        "str"
+      ],
+      "get_cpu_info()": [
+        "platform.processor",
+        "platform.machine"
+      ],
+      "get_gpu_info()": [
+        "GPUtil.getGPUs",
+        "str"
+      ],
+      "detect_cuda_with_torch()": [
+        "hasattr",
+        "hasattr",
+        "torch.cuda.is_available",
+        "logger.warning",
+        "logger.warning",
+        "logger.error"
+      ],
+      "get_cuda_device_name_with_torch()": [
+        "hasattr",
+        "hasattr",
+        "detect_cuda_with_torch",
+        "torch.cuda.get_device_name",
+        "logger.error",
+        "logger.error"
+      ],
+      "recommend_torch_version()": [
+        "logger.info",
+        "hasattr",
+        "hasattr",
+        "torch.cuda.is_available",
+        "hasattr",
+        "torch.cuda.get_device_name",
+        "CUDA_COMPATIBILITY.items",
+        "key.lower",
+        "name.lower",
+        "logger.info",
+        "logger.warning",
+        "logger.info",
+        "logger.error"
+      ],
+      "detect_cpu_vendor()": [
+        "get_cpu_info"
+      ],
+      "write_env_file(settings, base_dir_path, asr_device, tts_device)": [
+        "logger.info",
+        "env_path.open",
+        "settings.items",
+        "f.write",
+        "key.upper",
+        "f.write",
+        "logger.info",
+        "f.write",
+        "logger.info"
+      ],
+      "install_pytorch_version(torch_version_str)": [
+        "logger.info",
+        "torch_version_str.split",
+        "logger.info",
+        "subprocess.run",
+        "logger.info",
+        "logger.error",
+        "logger.error",
+        "logger.error",
+        "logger.error"
+      ],
+      "run_device_setup(base_dir_path_str)": [
+        "Path",
+        "logger.info",
+        "logger.info",
+        "platform.system",
+        "platform.release",
+        "get_cpu_info",
+        "logger.info",
+        "get_gpu_info",
+        "logger.info",
+        "detect_cuda_with_torch",
+        "logger.info",
+        "get_cuda_device_name_with_torch",
+        "logger.info",
+        "recommend_torch_version",
+        "logger.info",
+        "logger.info",
+        "install_pytorch_version",
+        "logger.info",
+        "logger.info",
+        "detect_cpu_vendor",
+        "write_env_file",
+        "logger.info"
+      ]
+    }
+  },
+  "download_and_models": {
+    "functions": [
+      "download_file(url, dest)",
+      "play_sample_tts(model_name_for_tts, speed_rate, sample_text)",
+      "setup_tts()",
+      "setup_precise(base_dir, model_url)",
+      "setup_stt_model()"
+    ],
+    "imports": [
+      "TTS.api",
+      "TTS.config.shared_configs",
+      "TTS.tts.configs.xtts_config",
+      "TTS.tts.models.xtts",
+      "config",
+      "dotenv",
+      "modules.stt_model_selection",
+      "modules.whisper_setup",
+      "modules.whisperx_setup",
+      "os",
+      "sounddevice",
+      "subprocess",
+      "sys",
+      "torch",
+      "urllib.request"
+    ],
+    "calls": {
+      "download_file(url, dest)": [
+        "urllib.request.urlretrieve",
+        "print",
+        "print"
+      ],
+      "play_sample_tts(model_name_for_tts, speed_rate, sample_text)": [
+        "model_name_for_tts.lower",
+        "print",
+        "safe_globals_to_add.append",
+        "print",
+        "print",
+        "print",
+        "safe_globals_to_add.append",
+        "print",
+        "print",
+        "print",
+        "safe_globals_to_add.append",
+        "print",
+        "print",
+        "print",
+        "safe_globals_to_add.append",
+        "print",
+        "print",
+        "print",
+        "getattr",
+        "hasattr",
+        "serialization_mod.add_safe_globals",
+        "print",
+        "len",
+        "print",
+        "print",
+        "print",
+        "CoquiTTS",
+        "model_name_for_tts.lower",
+        "print",
+        "os.path.exists",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "tts_temp_instance.tts",
+        "hasattr",
+        "hasattr",
+        "sd.play",
+        "sd.wait",
+        "print"
+      ],
+      "setup_tts()": [
+        "os.path.join",
+        "print",
+        "print",
+        "print",
+        "subprocess.run",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "input",
+        "set_key",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "float",
+        "os.getenv",
+        "print",
+        "input",
+        "print",
+        "float",
+        "print",
+        "play_sample_tts",
+        "input",
+        "set_key",
+        "str",
+        "print",
+        "print",
+        "print",
+        "input",
+        "print",
+        "os.getenv",
+        "set_key",
+        "str",
+        "final_model_to_use.lower",
+        "print",
+        "safe_globals_to_add.append",
+        "print",
+        "print",
+        "print",
+        "safe_globals_to_add.append",
+        "print",
+        "print",
+        "print",
+        "safe_globals_to_add.append",
+        "print",
+        "print",
+        "print",
+        "safe_globals_to_add.append",
+        "print",
+        "print",
+        "print",
+        "getattr",
+        "hasattr",
+        "serialization_mod.add_safe_globals",
+        "print",
+        "len",
+        "print",
+        "print",
+        "print",
+        "CoquiTTS",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print"
+      ],
+      "setup_precise(base_dir, model_url)": [
+        "os.path.join",
+        "os.path.join",
+        "os.path.exists",
+        "download_file",
+        "subprocess.run",
+        "print"
+      ],
+      "setup_stt_model()": [
+        "os.path.join",
+        "describe_stt_models",
+        "print",
+        "models.items",
+        "print",
+        "print",
+        "input",
+        "print",
+        "set_key",
+        "print",
+        "print",
+        "enumerate",
+        "print",
+        "input",
+        "int",
+        "len",
+        "print",
+        "set_key",
+        "print",
+        "setup_whisperx",
+        "print",
+        "enumerate",
+        "print",
+        "input",
+        "int",
+        "len",
+        "print",
+        "set_key",
+        "print",
+        "setup_whisper",
+        "print"
+      ]
+    }
+  },
+  "error_handling": {
+    "functions": [
+      "async_error_handler(timeout)",
+      "decorator(func)"
+    ],
+    "imports": [
+      "asyncio",
+      "functools",
+      "logging",
+      "typing"
+    ],
+    "calls": {
+      "decorator(func)": [
+        "asyncio.wait_for",
+        "func",
+        "func",
+        "logging.error",
+        "kwargs.get",
+        "tts_callback",
+        "logging.exception",
+        "kwargs.get",
+        "tts_callback",
+        "functools.wraps"
+      ]
+    }
+  },
+  "file_watcher_service": {
+    "functions": [
+      "__init__(self, reload_callback, files_to_watch)",
+      "on_any_event(self, event)",
+      "start_normalization_data_watcher(reload_callback, data_dir, filenames)"
+    ],
+    "imports": [
+      "logging",
+      "os",
+      "time",
+      "typing",
+      "watchdog.events",
+      "watchdog.observers"
+    ],
+    "calls": {
+      "__module__": [
+        "logging.getLogger"
+      ],
+      "__init__(self, reload_callback, files_to_watch)": [
+        "super",
+        "os.path.abspath"
+      ],
+      "on_any_event(self, event)": [
+        "os.path.abspath",
+        "os.path.abspath",
+        "getattr",
+        "time.time",
+        "logger.info",
+        "self.reload_callback",
+        "logger.error"
+      ],
+      "start_normalization_data_watcher(reload_callback, data_dir, filenames)": [
+        "os.path.join",
+        "NormalizationDataChangeHandler",
+        "Observer",
+        "observer.schedule",
+        "observer.start",
+        "logger.info",
+        "observer.is_alive",
+        "observer.join",
+        "logger.info",
+        "observer.stop",
+        "observer.join",
+        "logger.info"
+      ]
+    }
+  },
+  "greeting_module": {
+    "functions": [
+      "_load_variations(label)",
+      "get_greeting()",
+      "get_goodbye()"
+    ],
+    "imports": [
+      "os",
+      "pandas",
+      "random"
+    ],
+    "calls": {
+      "__module__": [
+        "os.path.join",
+        "os.path.dirname",
+        "_load_variations",
+        "_load_variations"
+      ],
+      "_load_variations(label)": [
+        "pd.read_csv"
+      ],
+      "get_greeting()": [
+        "random.choice"
+      ],
+      "get_goodbye()": [
+        "random.choice"
+      ]
+    }
+  },
+  "gui_utils": {
+    "functions": [
+      "show_reminders_gui(reminders, date_str)"
+    ],
+    "imports": [
+      "datetime",
+      "tkinter"
+    ],
+    "calls": {
+      "show_reminders_gui(reminders, date_str)": [
+        "tk.Tk",
+        "root.title",
+        "tk.Text",
+        "text_widget.insert",
+        "r_item.get",
+        "r_item.get",
+        "isinstance",
+        "time_val.strftime",
+        "isinstance",
+        "datetime.fromisoformat",
+        "text_widget.insert",
+        "text_widget.insert",
+        "text_widget.config",
+        "text_widget.pack",
+        "tk.Button",
+        "btn.pack",
+        "root.mainloop"
+      ]
+    }
+  },
+  "install_dependencies": {
+    "functions": [
+      "check_prerequisites()",
+      "run_command(cmd, error_msg)",
+      "install_system_dependencies()",
+      "install_python_dependencies()",
+      "list_ollama_models()",
+      "pull_ollama_model()",
+      "test_tts_installation()",
+      "install_dependencies()"
+    ],
+    "imports": [
+      "TTS.api",
+      "dotenv",
+      "logging",
+      "modules.config",
+      "os",
+      "platform",
+      "shutil",
+      "subprocess",
+      "sys"
+    ],
+    "calls": {
+      "__module__": [
+        "logging.basicConfig",
+        "logging.StreamHandler",
+        "logging.getLogger",
+        "install_dependencies"
+      ],
+      "check_prerequisites()": [
+        "logger.error",
+        "sys.exit",
+        "logger.info",
+        "subprocess.check_output",
+        "logger.error",
+        "sys.exit",
+        "platform.system",
+        "shutil.which",
+        "logger.error",
+        "sys.exit",
+        "shutil.which",
+        "logger.error",
+        "sys.exit",
+        "shutil.which",
+        "logger.info",
+        "logger.warning",
+        "shutil.which",
+        "logger.warning",
+        "hasattr",
+        "getattr",
+        "logger.warning"
+      ],
+      "run_command(cmd, error_msg)": [
+        "subprocess.run",
+        "logger.info",
+        "logger.error"
+      ],
+      "install_system_dependencies()": [
+        "platform.system",
+        "logger.info",
+        "run_command",
+        "run_command",
+        "run_command",
+        "shutil.which",
+        "logger.info",
+        "run_command",
+        "logger.warning",
+        "logger.warning",
+        "shutil.which",
+        "logger.info",
+        "run_command",
+        "logger.warning",
+        "logger.warning"
+      ],
+      "install_python_dependencies()": [
+        "logger.info",
+        "run_command",
+        "logger.info",
+        "run_command",
+        "logger.error",
+        "platform.system",
+        "logger.warning",
+        "logger.info",
+        "run_command",
+        "platform.system",
+        "logger.info",
+        "run_command",
+        "run_command",
+        "logger.info",
+        "run_command",
+        "logger.info",
+        "run_command"
+      ],
+      "list_ollama_models()": [
+        "logger.info",
+        "run_command",
+        "result.stdout.strip",
+        "len",
+        "logger.info",
+        "line.split",
+        "models.append",
+        "logger.warning"
+      ],
+      "pull_ollama_model()": [
+        "shutil.which",
+        "logger.warning",
+        "os.path.realpath",
+        "os.path.isabs",
+        "ValueError",
+        "os.path.join",
+        "os.path.exists",
+        "open",
+        "logger.info",
+        "logger.info",
+        "list_ollama_models",
+        "logger.info",
+        "logger.info",
+        "logger.info",
+        "input",
+        "logger.info",
+        "logger.info",
+        "run_command",
+        "logger.info",
+        "input",
+        "logger.warning",
+        "os.getenv",
+        "set_key",
+        "logger.info",
+        "logger.warning",
+        "logger.info"
+      ],
+      "test_tts_installation()": [
+        "logger.info",
+        "TTS",
+        "tts.tts_to_file",
+        "logger.info",
+        "logger.error",
+        "str",
+        "logger.warning"
+      ],
+      "install_dependencies()": [
+        "check_prerequisites",
+        "install_system_dependencies",
+        "install_python_dependencies",
+        "pull_ollama_model",
+        "test_tts_installation",
+        "logger.info",
+        "logger.error",
+        "str",
+        "sys.exit"
+      ]
+    }
+  },
+  "intent_classifier": {
+    "functions": [
+      "initialize_intent_classifier()"
+    ],
+    "imports": [
+      "asyncio",
+      "config",
+      "joint_model",
+      "os",
+      "pandas",
+      "torch",
+      "transformers",
+      "typing"
+    ],
+    "calls": {
+      "__module__": [
+        "os.path.join",
+        "os.path.dirname",
+        "pd.read_csv",
+        "sorted",
+        "enumerate",
+        "RuntimeError",
+        "intent_tokenizer",
+        "torch.no_grad",
+        "asyncio.to_thread",
+        "torch.softmax",
+        "torch.max",
+        "confidence_score_tensor.item",
+        "predicted_intent_id_tensor.item",
+        "print",
+        "int",
+        "hasattr",
+        "intent_model.config.id2intent_label.get",
+        "INTENT_LABELS_MAP.get",
+        "print",
+        "torch.argmax",
+        "intent_tokenizer.convert_ids_to_tokens",
+        "hasattr",
+        "enumerate",
+        "zip",
+        "predicted_slot_ids.squeeze",
+        "id2slot_label.get",
+        "int",
+        "predicted_slot_id_tensor.item",
+        "predicted_slot_label.startswith",
+        "entities.get",
+        "current_entity_value.strip",
+        "token.replace",
+        "token.replace",
+        "predicted_slot_label.startswith",
+        "token.startswith",
+        "token.replace",
+        "token.replace",
+        "entities.get",
+        "current_entity_value.strip",
+        "entities.get",
+        "current_entity_value.strip",
+        "entities.get",
+        "current_entity_value.strip",
+        "print"
+      ],
+      "initialize_intent_classifier()": [
+        "print",
+        "DistilBertTokenizer.from_pretrained",
+        "DistilBertConfig.from_pretrained",
+        "isinstance",
+        "hasattr",
+        "callable",
+        "getattr",
+        "DistilBertConfig.from_dict",
+        "loaded_config_obj.to_dict",
+        "cast",
+        "TypeError",
+        "type",
+        "JointIntentSlotModel",
+        "os.path.join",
+        "os.path.realpath",
+        "os.path.realpath",
+        "resolved_model_weights_path.startswith",
+        "ValueError",
+        "os.path.exists",
+        "print",
+        "print",
+        "FileNotFoundError",
+        "intent_model.load_state_dict",
+        "torch.load",
+        "torch.device",
+        "intent_model.eval",
+        "print",
+        "print",
+        "print"
+      ]
+    }
+  },
+  "intent_logic": {
+    "functions": [
+      "intent_handler(intent_name)",
+      "decorator(func)",
+      "get_response(intent_key)"
+    ],
+    "imports": [
+      "asyncio",
+      "dateparser",
+      "datetime",
+      "json",
+      "logging",
+      "modules.audio_utils",
+      "modules.calendar_utils",
+      "modules.config",
+      "modules.contractions",
+      "modules.db_manager",
+      "modules.error_handling",
+      "modules.gui_utils",
+      "modules.intent_classifier",
+      "modules.llm_service",
+      "modules.reminder_utils",
+      "modules.retrain_utils",
+      "modules.stt_service",
+      "modules.tts_service",
+      "modules.weather_service",
+      "os",
+      "pandas",
+      "re",
+      "scripts.intent_validator",
+      "threading",
+      "typing"
+    ],
+    "calls": {
+      "__module__": [
+        "logging.getLogger",
+        "os.path.abspath",
+        "os.path.join",
+        "os.path.dirname",
+        "pd.read_csv",
+        "dict",
+        "zip",
+        "get_response",
+        "text_to_speech_async",
+        "intent_handler",
+        "get_response",
+        "text_to_speech_async",
+        "intent_handler",
+        "get_response",
+        "logger.info",
+        "text_to_speech_async",
+        "intent_handler",
+        "get_response",
+        "logger.info",
+        "text_to_speech_async",
+        "logger.info",
+        "text_to_speech_async",
+        "asyncio.sleep",
+        "ShutdownSignal",
+        "intent_handler",
+        "get_response",
+        "text_to_speech_async",
+        "run_validation_and_retrain_async",
+        "get_response",
+        "str",
+        "logger.info",
+        "text_to_speech_async",
+        "intent_handler",
+        "normalize_text",
+        "logger.info",
+        "detect_intent_async",
+        "logger.info",
+        "any",
+        "normalized_transcription.lower",
+        "logger.info",
+        "handle_goodbye_intent",
+        "parse_retrain_request",
+        "get_response",
+        "text_to_speech_async",
+        "run_validation_and_retrain_async",
+        "get_response",
+        "str",
+        "logger.info",
+        "text_to_speech_async",
+        "INTENT_HANDLERS.get",
+        "handler",
+        "logger.info",
+        "get_llm_response",
+        "get_response",
+        "llm_response.lower",
+        "llm_response.lower",
+        "get_response",
+        "logger.info",
+        "text_to_speech_async",
+        "async_error_handler",
+        "entities.get",
+        "entities.get",
+        "dateparser.parse",
+        "logger.info",
+        "parse_reminder",
+        "get_response",
+        "text_to_speech_async",
+        "save_reminder_async",
+        "add_event_to_calendar",
+        "get_response",
+        "reminder_time_obj.strftime",
+        "response_parts.append",
+        "response_parts.append",
+        "get_response",
+        "response_parts.append",
+        "get_response",
+        "response_parts.append",
+        "get_response",
+        "response_parts.append",
+        "get_response",
+        "reminder_time_obj.strftime",
+        "response_parts.append",
+        "get_response",
+        "get_response",
+        "response_parts.append",
+        "filter",
+        "get_response",
+        "text_to_speech_async",
+        "intent_handler",
+        "parse_list_reminder_request",
+        "get_reminders_for_date_async",
+        "target_date.strftime",
+        "get_response",
+        "get_response",
+        "threading.Thread",
+        "get_response",
+        "text_to_speech_async",
+        "intent_handler",
+        "entities.get",
+        "datetime.datetime.now",
+        "location_entity.lower",
+        "logger.info",
+        "re.search",
+        "normalized_transcription.lower",
+        "location_match.group",
+        "extracted_location_regex.lower",
+        "p.lower",
+        "normalized_transcription.lower",
+        "any",
+        "get_response",
+        "text_to_speech_async",
+        "logger.info",
+        "text_to_speech_async",
+        "get_weather_async",
+        "get_response",
+        "add_event_to_calendar",
+        "get_response",
+        "logger.info",
+        "text_to_speech_async",
+        "get_weather_async",
+        "get_response",
+        "get_response",
+        "get_response",
+        "text_to_speech_async",
+        "intent_handler",
+        "get_response",
+        "text_to_speech_async",
+        "asyncio.wait_for",
+        "record_audio_async",
+        "logger.warning",
+        "text_to_speech_async",
+        "logger.error",
+        "text_to_speech_async",
+        "audio_data.any",
+        "logger.info",
+        "transcribe_audio_async",
+        "user_input.strip",
+        "logger.info",
+        "logger.info",
+        "user_input.lower",
+        "logger.info",
+        "get_llm_response",
+        "llm_response_text.strip",
+        "logger.warning",
+        "logger.info",
+        "text_to_speech_async",
+        "conversation_log_for_saving.append",
+        "os.path.join",
+        "os.path.realpath",
+        "os.path.realpath",
+        "os.path.commonpath",
+        "ValueError",
+        "os.makedirs",
+        "dt.now",
+        "os.path.join",
+        "open",
+        "json.dump",
+        "get_response",
+        "logger.error",
+        "get_response",
+        "get_response",
+        "text_to_speech_async",
+        "intent_handler",
+        "entities.get",
+        "entities.get",
+        "entities.get",
+        "entities.get",
+        "logger.info",
+        "dateparser.parse",
+        "logger.info",
+        "logger.warning",
+        "logger.info",
+        "logger.info",
+        "re.search",
+        "match.group",
+        "re.search",
+        "called_match.group",
+        "called_match.group",
+        "match.group",
+        "dateparser.parse",
+        "add_event_to_calendar",
+        "get_response",
+        "get_response",
+        "get_response",
+        "text_to_speech_async",
+        "intent_handler",
+        "stop_ollama_llm",
+        "get_response",
+        "text_to_speech_async",
+        "intent_handler"
+      ],
+      "get_response(intent_key)": [
+        "RESPONSE_MAP.get",
+        "resp.format",
+        "logger.warning",
+        "logger.warning"
+      ]
+    }
+  },
+  "joint_model": {
+    "functions": [
+      "__init__(self, config)",
+      "forward(self, input_ids, attention_mask, head_mask, inputs_embeds, output_attentions, output_hidden_states, return_dict, intent_labels, slot_labels)"
+    ],
+    "imports": [
+      "dataclasses",
+      "torch",
+      "transformers",
+      "transformers.utils",
+      "typing"
+    ],
+    "calls": {
+      "__init__(self, config)": [
+        "super",
+        "hasattr",
+        "hasattr",
+        "ValueError",
+        "DistilBertModel",
+        "nn.Linear",
+        "hasattr",
+        "nn.Dropout",
+        "nn.Linear"
+      ],
+      "forward(self, input_ids, attention_mask, head_mask, inputs_embeds, output_attentions, output_hidden_states, return_dict, intent_labels, slot_labels)": [
+        "self.distilbert",
+        "torch.empty",
+        "torch.empty",
+        "self.intent_classifier",
+        "self.dropout",
+        "self.slot_classifier",
+        "nn.CrossEntropyLoss",
+        "cast",
+        "loss_fct",
+        "intent_logits_tensor.view",
+        "intent_labels.view",
+        "cast",
+        "attention_mask.view",
+        "torch.ones_like",
+        "slot_labels.view",
+        "slot_logits_tensor.view",
+        "cast",
+        "slot_labels_casted.view",
+        "valid_active_logits.nelement",
+        "valid_active_labels.nelement",
+        "loss_fct",
+        "torch.tensor",
+        "torch.tensor",
+        "torch.tensor",
+        "JointModelOutput",
+        "cast",
+        "cast"
+      ]
+    }
+  },
+  "llm_service": {
+    "functions": [
+      "get_session_history(session_id)",
+      "initialize_llm()",
+      "get_llm_response_sync(input_text)"
+    ],
+    "imports": [
+      "asyncio",
+      "config",
+      "langchain_community.chat_message_histories",
+      "langchain_community.llms",
+      "langchain_core.chat_history",
+      "langchain_core.prompts",
+      "langchain_core.runnables.config",
+      "langchain_core.runnables.history",
+      "typing"
+    ],
+    "calls": {
+      "get_session_history(session_id)": [
+        "ChatMessageHistory"
+      ],
+      "initialize_llm()": [
+        "print",
+        "Ollama",
+        "PromptTemplate",
+        "RuntimeError",
+        "cast",
+        "RunnableWithMessageHistory",
+        "print"
+      ],
+      "__module__": [
+        "RuntimeError",
+        "asyncio.to_thread",
+        "str",
+        "print",
+        "print",
+        "print"
+      ],
+      "get_llm_response_sync(input_text)": [
+        "RuntimeError",
+        "runnable_with_history_global.invoke",
+        "str",
+        "print"
+      ]
+    }
+  },
+  "model_training": {
+    "functions": [
+      "fine_tune_model(dataset_path, model_save_path)",
+      "process_data_for_joint_model(examples)"
+    ],
+    "imports": [
+      "argparse",
+      "datasets",
+      "json",
+      "modules.contractions",
+      "modules.joint_model",
+      "os",
+      "pandas",
+      "re",
+      "scripts.intent_validator",
+      "subprocess",
+      "sys",
+      "torch",
+      "transformers",
+      "typing"
+    ],
+    "calls": {
+      "__module__": [
+        "sys.path.insert",
+        "os.path.abspath",
+        "os.path.join",
+        "os.path.dirname",
+        "os.path.abspath",
+        "os.path.join",
+        "os.path.dirname",
+        "os.path.join",
+        "os.path.join",
+        "argparse.ArgumentParser",
+        "parser.add_argument",
+        "parser.add_argument",
+        "parser.parse_args",
+        "print",
+        "print",
+        "print",
+        "fine_tune_model",
+        "print"
+      ],
+      "fine_tune_model(dataset_path, model_save_path)": [
+        "os.path.abspath",
+        "os.path.join",
+        "os.path.dirname",
+        "os.path.join",
+        "os.path.join",
+        "os.path.join",
+        "os.path.exists",
+        "print",
+        "subprocess.run",
+        "print",
+        "print",
+        "clean_result.stderr.strip",
+        "os.path.exists",
+        "print",
+        "print",
+        "os.path.abspath",
+        "os.path.join",
+        "os.path.dirname",
+        "os.path.join",
+        "print",
+        "subprocess.run",
+        "print",
+        "dict_augment_result.stderr.strip",
+        "print",
+        "dict_augment_result.stdout.strip",
+        "print",
+        "os.path.join",
+        "os.path.join",
+        "print",
+        "subprocess.run",
+        "print",
+        "augment_result.stderr.strip",
+        "print",
+        "augment_result.stdout.strip",
+        "print",
+        "print",
+        "validate_intents",
+        "print",
+        "print",
+        "print",
+        "input",
+        "print",
+        "print",
+        "print",
+        "print",
+        "os.path.isfile",
+        "print",
+        "os.getpid",
+        "print",
+        "print",
+        "load_dataset",
+        "isinstance",
+        "isinstance",
+        "ValueError",
+        "pd.read_csv",
+        "ValueError",
+        "sorted",
+        "enumerate",
+        "intent_label_map.items",
+        "set",
+        "json.loads",
+        "entities.keys",
+        "unique_entity_types.add",
+        "print",
+        "sorted",
+        "list",
+        "slot_labels_list.append",
+        "slot_labels_list.append",
+        "enumerate",
+        "slot_label_map.items",
+        "print",
+        "print",
+        "print",
+        "dataset.map",
+        "normalize_text",
+        "dataset.map",
+        "DistilBertTokenizer.from_pretrained",
+        "cast",
+        "DistilBertConfig.from_pretrained",
+        "len",
+        "len",
+        "JointIntentSlotModel",
+        "dataset.map",
+        "os.makedirs",
+        "os.path.join",
+        "os.makedirs",
+        "TrainingArguments",
+        "torch.cuda.is_available",
+        "dataset.set_format",
+        "print",
+        "type",
+        "Trainer",
+        "print",
+        "trainer.train",
+        "torch.save",
+        "model.state_dict",
+        "os.path.join",
+        "tokenizer.save_pretrained",
+        "print",
+        "print",
+        "hasattr",
+        "hasattr",
+        "config_to_save.save_pretrained",
+        "open",
+        "os.path.join",
+        "json.dump",
+        "config_to_save.to_dict"
+      ],
+      "process_data_for_joint_model(examples)": [
+        "tokenizer",
+        "len",
+        "examples.get",
+        "json.loads",
+        "tokenized_inputs.sequence_ids",
+        "entities.items",
+        "str",
+        "re.finditer",
+        "re.escape",
+        "match.span",
+        "enumerate",
+        "max",
+        "min",
+        "token_indices_in_entity.append",
+        "print"
+      ]
+    }
+  },
+  "ollama_setup": {
+    "functions": [],
+    "imports": [],
+    "calls": {}
+  },
+  "reminder_utils": {
+    "functions": [
+      "_parse_time_from_entities_text(time_str, date_ref_str, now)",
+      "_parse_date_from_entities_text(date_ref_str)",
+      "parse_reminder(text, entities)",
+      "parse_list_reminder_request(text, entities)"
+    ],
+    "imports": [
+      "datetime",
+      "logging",
+      "re",
+      "typing"
+    ],
+    "calls": {
+      "_parse_time_from_entities_text(time_str, date_ref_str, now)": [
+        "datetime.now",
+        "now.date",
+        "re.fullmatch",
+        "time_str.strip",
+        "int",
+        "in_duration_match.group",
+        "in_duration_match.group",
+        "timedelta",
+        "timedelta",
+        "date_ref_str.lower",
+        "now.date",
+        "timedelta",
+        "now.date",
+        "time_str.lower",
+        "re.sub",
+        "now.date",
+        "timedelta",
+        "re.sub",
+        "now.date",
+        "re.fullmatch",
+        "time_str.strip",
+        "time_pattern_match.group",
+        "time_pattern_match.group",
+        "time_pattern_match.group",
+        "datetime.strptime",
+        "datetime.strptime",
+        "logging.getLogger",
+        "logger.debug",
+        "datetime.combine",
+        "logging.getLogger",
+        "logger.debug",
+        "type",
+        "now.date",
+        "date_ref_str.lower",
+        "datetime.combine",
+        "now.date",
+        "timedelta",
+        "time_str.strip",
+        "timedelta",
+        "now.replace"
+      ],
+      "_parse_date_from_entities_text(date_ref_str)": [
+        "datetime.now",
+        "date_ref_str.lower",
+        "now.date",
+        "timedelta",
+        "timedelta",
+        "now.weekday",
+        "timedelta",
+        "now.date",
+        "days_of_week.items",
+        "now.weekday",
+        "timedelta"
+      ],
+      "__module__": [
+        "logging.getLogger"
+      ],
+      "parse_reminder(text, entities)": [
+        "logger.debug",
+        "isinstance",
+        "text.strip",
+        "logger.debug",
+        "entities.get",
+        "entities.get",
+        "entities.get",
+        "entities.get",
+        "_parse_time_from_entities_text",
+        "_parse_time_from_entities_text",
+        "_parse_time_from_entities_text",
+        "_parse_time_from_entities_text",
+        "str",
+        "re.search",
+        "text.lower",
+        "re.search",
+        "logger.debug",
+        "task_match.group",
+        "task_match.end",
+        "text.lower",
+        "datetime.now",
+        "re.search",
+        "tomorrow_at_time_match.group",
+        "tomorrow_at_time_match.group",
+        "_parse_time_from_entities_text",
+        "logger.warning",
+        "re.search",
+        "at_time_match.group",
+        "_parse_time_from_entities_text",
+        "logger.warning",
+        "timedelta",
+        "re.search",
+        "int",
+        "in_duration_match.group",
+        "in_duration_match.group",
+        "timedelta",
+        "timedelta",
+        "timedelta",
+        "timedelta"
+      ],
+      "parse_list_reminder_request(text, entities)": [
+        "logger.debug",
+        "text.lower",
+        "entities.get",
+        "_parse_date_from_entities_text",
+        "str",
+        "datetime.now",
+        "text_lower.strip",
+        "now.date",
+        "timedelta",
+        "timedelta",
+        "re.search",
+        "int",
+        "match.group",
+        "match.group",
+        "timedelta",
+        "timedelta",
+        "timedelta",
+        "now.weekday",
+        "timedelta",
+        "now.date",
+        "days_of_week.items",
+        "now.weekday",
+        "now.date",
+        "timedelta",
+        "re.search",
+        "match.groups",
+        "datetime.strptime",
+        "int",
+        "int",
+        "date",
+        "now.date",
+        "any",
+        "date",
+        "re.search",
+        "match.group",
+        "datetime.strptime",
+        "datetime.strptime"
+      ]
+    }
+  },
+  "retrain_utils": {
+    "functions": [
+      "parse_retrain_request(text)"
+    ],
+    "imports": [
+      "asyncio",
+      "os",
+      "subprocess",
+      "sys"
+    ],
+    "calls": {
+      "__module__": [
+        "os.path.abspath",
+        "os.path.join",
+        "os.path.dirname",
+        "os.path.join",
+        "os.path.join",
+        "os.path.join",
+        "os.path.dirname",
+        "os.path.abspath",
+        "os.path.join",
+        "os.path.join",
+        "print",
+        "asyncio.to_thread",
+        "print",
+        "augment_result.stderr.strip",
+        "print",
+        "augment_result.stdout.strip",
+        "print",
+        "os.path.isfile",
+        "print",
+        "asyncio.to_thread",
+        "result.stderr.strip",
+        "result.stdout.strip"
+      ],
+      "parse_retrain_request(text)": [
+        "any",
+        "text.lower"
+      ]
+    }
+  },
+  "stt_model_selection": {
+    "functions": [
+      "describe_stt_models()",
+      "prompt_stt_model_choice()"
+    ],
+    "imports": [],
+    "calls": {
+      "prompt_stt_model_choice()": [
+        "describe_stt_models",
+        "print",
+        "models.items",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "input",
+        "print"
+      ]
+    }
+  },
+  "stt_service": {
+    "functions": [
+      "initialize_stt()",
+      "transcribe_audio(audio_data_np_int16)"
+    ],
+    "imports": [
+      "asyncio",
+      "config",
+      "numpy",
+      "whisperx"
+    ],
+    "calls": {
+      "initialize_stt()": [
+        "print",
+        "whisperx.load_model",
+        "print",
+        "whisperx.load_align_model",
+        "print",
+        "print",
+        "print"
+      ],
+      "__module__": [
+        "RuntimeError",
+        "audio_data_np_int16.astype",
+        "asyncio.to_thread",
+        "transcribe_result.get",
+        "asyncio.to_thread",
+        "print",
+        "print",
+        "segment.get",
+        "filter"
+      ],
+      "transcribe_audio(audio_data_np_int16)": [
+        "RuntimeError",
+        "audio_data_np_int16.astype",
+        "stt_model_global.transcribe",
+        "result.get",
+        "whisperx.align",
+        "print",
+        "print",
+        "segment.get",
+        "filter"
+      ]
+    }
+  },
+  "tts_service": {
+    "functions": [
+      "initialize_tts()",
+      "text_to_speech(text)"
+    ],
+    "imports": [
+      "TTS.api",
+      "TTS.config.shared_configs",
+      "TTS.tts.configs.xtts_config",
+      "TTS.tts.models.xtts",
+      "asyncio",
+      "config",
+      "os",
+      "sounddevice",
+      "torch"
+    ],
+    "calls": {
+      "initialize_tts()": [
+        "print",
+        "print",
+        "RuntimeError",
+        "TTS_MODEL_NAME.lower",
+        "print",
+        "safe_globals_to_add.append",
+        "print",
+        "print",
+        "print",
+        "safe_globals_to_add.append",
+        "print",
+        "print",
+        "safe_globals_to_add.append",
+        "print",
+        "print",
+        "safe_globals_to_add.append",
+        "print",
+        "print",
+        "hasattr",
+        "torch.serialization.add_safe_globals",
+        "print",
+        "len",
+        "print",
+        "TTS_DEVICE.lower",
+        "torch.cuda.is_available",
+        "print",
+        "print",
+        "TTS_DEVICE.lower",
+        "print",
+        "print",
+        "CoquiTTS",
+        "hasattr",
+        "hasattr",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print"
+      ],
+      "__module__": [
+        "RuntimeError",
+        "TTS_MODEL_NAME.lower",
+        "print",
+        "os.path.exists",
+        "print",
+        "print",
+        "asyncio.to_thread",
+        "hasattr",
+        "hasattr",
+        "print",
+        "asyncio.to_thread",
+        "asyncio.to_thread",
+        "print"
+      ],
+      "text_to_speech(text)": [
+        "RuntimeError",
+        "TTS_MODEL_NAME.lower",
+        "os.path.exists",
+        "tts_instance.tts",
+        "hasattr",
+        "hasattr",
+        "sd.play",
+        "sd.wait"
+      ]
+    }
+  },
+  "utils": {
+    "functions": [
+      "create_directories(BASE_DIR, MODEL_SAVE_PATH)"
+    ],
+    "imports": [
+      "os"
+    ],
+    "calls": {
+      "create_directories(BASE_DIR, MODEL_SAVE_PATH)": [
+        "os.makedirs",
+        "os.makedirs"
+      ]
+    }
+  },
+  "weather_service": {
+    "functions": [
+      "initialize_weather_service()"
+    ],
+    "imports": [
+      "aiohttp",
+      "asyncio",
+      "config",
+      "logging",
+      "os",
+      "typing"
+    ],
+    "calls": {
+      "__module__": [
+        "logging.getLogger",
+        "print",
+        "aiohttp.ClientSession",
+        "session.get",
+        "response.raise_for_status",
+        "response.json",
+        "data.get",
+        "print",
+        "data.get",
+        "print",
+        "data.get",
+        "print",
+        "print",
+        "print",
+        "entities.get",
+        "str",
+        "entities.get",
+        "any",
+        "print",
+        "entities.get",
+        "entities.get",
+        "entities.get",
+        "str",
+        "entities.get",
+        "print",
+        "isinstance",
+        "print",
+        "isinstance",
+        "len",
+        "str",
+        "print",
+        "print",
+        "get_current_location_coordinates_async",
+        "print",
+        "print",
+        "type",
+        "print",
+        "aiohttp.ClientSession",
+        "session.get",
+        "response.raise_for_status",
+        "response.json",
+        "print",
+        "type",
+        "data.get",
+        "data.get",
+        "isinstance",
+        "len",
+        "isinstance",
+        "data.get",
+        "returned_city_name.strip",
+        "logger.warning",
+        "str",
+        "print",
+        "print",
+        "str",
+        "print",
+        "str",
+        "print",
+        "str"
+      ],
+      "initialize_weather_service()": [
+        "print",
+        "get_openweather_api_key",
+        "print",
+        "os.path.exists",
+        "open",
+        "f.read",
+        "print",
+        "print",
+        "print"
+      ]
+    }
+  },
+  "whisperx_setup": {
+    "functions": [
+      "get_project_root()",
+      "setup_whisperx()"
+    ],
+    "imports": [
+      "dotenv",
+      "modules.config",
+      "os",
+      "scipy.io.wavfile",
+      "sounddevice",
+      "subprocess",
+      "sys",
+      "tempfile",
+      "whisperx"
+    ],
+    "calls": {
+      "get_project_root()": [
+        "os.path.abspath",
+        "os.path.join",
+        "os.path.dirname"
+      ],
+      "setup_whisperx()": [
+        "print",
+        "print",
+        "print",
+        "get_project_root",
+        "os.path.join",
+        "os.path.exists",
+        "open",
+        "print",
+        "os.getenv",
+        "print",
+        "print",
+        "enumerate",
+        "print",
+        "input",
+        "int",
+        "len",
+        "print",
+        "print",
+        "set_key",
+        "print",
+        "print",
+        "print",
+        "whisperx.load_model",
+        "print",
+        "print",
+        "print",
+        "sd.sleep",
+        "print",
+        "sd.rec",
+        "int",
+        "sd.wait",
+        "tempfile.NamedTemporaryFile",
+        "wav.write",
+        "model.transcribe",
+        "print",
+        "os.remove",
+        "print",
+        "os.path.dirname",
+        "os.path.join",
+        "print",
+        "os.path.exists",
+        "print",
+        "subprocess.run",
+        "print",
+        "process.stdout.strip",
+        "print",
+        "process.stdout.strip",
+        "process.stderr.strip",
+        "print",
+        "process.stderr.strip",
+        "print",
+        "process.stdout.strip",
+        "print",
+        "process.stdout.strip",
+        "process.stderr.strip",
+        "print",
+        "process.stderr.strip",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print"
+      ]
+    }
+  },
+  "whisper_setup": {
+    "functions": [
+      "load_whisper_model(model_size, device)",
+      "transcribe_with_whisper(audio_np, model_size, device)",
+      "get_whisper_model_descriptions()",
+      "setup_whisper()"
+    ],
+    "imports": [
+      "dotenv",
+      "modules.config",
+      "numpy",
+      "os",
+      "scipy.io.wavfile",
+      "sounddevice",
+      "tempfile",
+      "whisper"
+    ],
+    "calls": {
+      "load_whisper_model(model_size, device)": [
+        "ImportError",
+        "whisper.load_model"
+      ],
+      "transcribe_with_whisper(audio_np, model_size, device)": [
+        "load_whisper_model",
+        "audio_np.astype",
+        "model.transcribe",
+        "result.get"
+      ],
+      "setup_whisper()": [
+        "os.path.abspath",
+        "os.path.join",
+        "os.path.dirname",
+        "os.path.join",
+        "os.getenv",
+        "print",
+        "print",
+        "enumerate",
+        "print",
+        "input",
+        "int",
+        "len",
+        "print",
+        "print",
+        "set_key",
+        "print",
+        "print",
+        "print",
+        "load_whisper_model",
+        "print",
+        "print",
+        "print",
+        "sd.sleep",
+        "print",
+        "sd.rec",
+        "int",
+        "sd.wait",
+        "tempfile.NamedTemporaryFile",
+        "wav.write",
+        "model.transcribe",
+        "print",
+        "os.remove",
+        "print",
+        "print",
+        "print"
+      ]
+    }
+  },
+  "__init__": {
+    "functions": [],
+    "imports": [],
+    "calls": {}
+  },
+  "device_manager": {
+    "functions": [
+      "load_devices(config_path)",
+      "get_device(name)",
+      "_save_devices_and_update_cache(devices_to_save, config_path)",
+      "list_devices()",
+      "announce_device_info(device_name)",
+      "add_device(name, mac_address, ip_address, group, type)",
+      "confirm_action(prompt)",
+      "remove_device(name)",
+      "update_device(name)",
+      "_ping_ip(ip_address, timeout)",
+      "check_all_device_statuses()",
+      "get_devices_by_group(group)",
+      "get_devices_by_type(type_filter)",
+      "list_devices_by_type(type_)",
+      "wake_group(group)",
+      "ping_group(group)",
+      "register_intents()",
+      "auto_discover_new_devices(interval_minutes)",
+      "discovery_loop()"
+    ],
+    "imports": [
+      "core.tts",
+      "json",
+      "logging",
+      "modules.find_devices",
+      "modules.wol",
+      "os",
+      "platform",
+      "subprocess",
+      "threading",
+      "time",
+      "typing"
+    ],
+    "calls": {
+      "__module__": [
+        "os.path.join"
+      ],
+      "load_devices(config_path)": [
+        "_DEVICES_CACHE.copy",
+        "os.path.dirname",
+        "os.makedirs",
+        "open",
+        "json.load",
+        "logging.error",
+        "speak",
+        "logging.error",
+        "speak"
+      ],
+      "get_device(name)": [
+        "load_devices",
+        "current_devices.items",
+        "name.lower",
+        "dev_name.lower",
+        "device.get",
+        "isinstance",
+        "any",
+        "name.lower",
+        "alias.lower",
+        "logging.warning",
+        "speak"
+      ],
+      "_save_devices_and_update_cache(devices_to_save, config_path)": [
+        "os.path.dirname",
+        "os.makedirs",
+        "open",
+        "json.dump",
+        "devices_to_save.copy",
+        "logging.error",
+        "speak"
+      ],
+      "list_devices()": [
+        "load_devices",
+        "list",
+        "devices.keys"
+      ],
+      "announce_device_info(device_name)": [
+        "get_device",
+        "speak",
+        "details.append",
+        "key.replace",
+        "device.items",
+        "details.append",
+        "key.replace",
+        "speak",
+        "speak"
+      ],
+      "add_device(name, mac_address, ip_address, group, type)": [
+        "load_devices",
+        "device_data.update",
+        "_save_devices_and_update_cache",
+        "speak",
+        "speak"
+      ],
+      "confirm_action(prompt)": [
+        "speak",
+        "input"
+      ],
+      "remove_device(name)": [
+        "load_devices",
+        "confirm_action",
+        "speak",
+        "_save_devices_and_update_cache",
+        "speak",
+        "speak",
+        "speak"
+      ],
+      "update_device(name)": [
+        "load_devices",
+        "speak",
+        "kwargs.items",
+        "_save_devices_and_update_cache",
+        "speak",
+        "speak"
+      ],
+      "_ping_ip(ip_address, timeout)": [
+        "platform.system",
+        "subprocess.run",
+        "logging.error"
+      ],
+      "check_all_device_statuses()": [
+        "load_devices",
+        "speak",
+        "devices.items",
+        "info.get",
+        "results.append",
+        "_ping_ip",
+        "results.append",
+        "results.append",
+        "speak"
+      ],
+      "get_devices_by_group(group)": [
+        "load_devices",
+        "devices.items",
+        "info.get",
+        "group.lower"
+      ],
+      "get_devices_by_type(type_filter)": [
+        "load_devices",
+        "devices.items",
+        "info.get",
+        "type_filter.lower"
+      ],
+      "list_devices_by_type(type_)": [
+        "get_devices_by_type",
+        "speak",
+        "devices.keys",
+        "speak"
+      ],
+      "wake_group(group)": [
+        "get_devices_by_group",
+        "speak",
+        "group_devices.items",
+        "info.get",
+        "send_wol_packet",
+        "speak"
+      ],
+      "ping_group(group)": [
+        "get_devices_by_group",
+        "speak",
+        "group_devices.items",
+        "info.get",
+        "results.append",
+        "_ping_ip",
+        "results.append",
+        "results.append",
+        "speak"
+      ],
+      "register_intents()": [
+        "speak",
+        "list_devices"
+      ],
+      "discovery_loop()": [
+        "load_devices",
+        "info.get",
+        "known_devices.values",
+        "get_local_ip",
+        "subprocess.run",
+        "result.stdout.splitlines",
+        "line.strip",
+        "stripped_line.lower",
+        "stripped_line.split",
+        "len",
+        "ip_candidate.startswith",
+        "ip_candidate.endswith",
+        "ip_candidate.count",
+        "unknown_ips.append",
+        "speak",
+        "len",
+        "_time.sleep",
+        "logging.error",
+        "_time.sleep"
+      ],
+      "auto_discover_new_devices(interval_minutes)": [
+        "threading.Thread",
+        "thread.start",
+        "speak"
+      ]
+    }
+  },
+  "find_devices": {
+    "functions": [
+      "get_local_ip()",
+      "find_devices()",
+      "announce_known_devices()",
+      "find_and_suggest_new_devices()",
+      "register_intents()"
+    ],
+    "imports": [
+      "core.tts",
+      "logging",
+      "modules.device_manager",
+      "socket",
+      "subprocess"
+    ],
+    "calls": {
+      "get_local_ip()": [
+        "socket.socket",
+        "s.connect",
+        "s.getsockname",
+        "s.close",
+        "logging.error"
+      ],
+      "find_devices()": [
+        "get_local_ip",
+        "logging.info",
+        "speak",
+        "subprocess.run",
+        "result.stdout.splitlines",
+        "line.strip",
+        "line.split",
+        "line.lower",
+        "logging.debug",
+        "line.split",
+        "len",
+        "ip_candidate.startswith",
+        "ip_candidate.endswith",
+        "ip_candidate.count",
+        "parsed_devices_info.append",
+        "logging.info",
+        "speak",
+        "logging.error",
+        "speak"
+      ],
+      "announce_known_devices()": [
+        "list_devices",
+        "speak",
+        "speak"
+      ],
+      "find_and_suggest_new_devices()": [
+        "get_local_ip",
+        "load_devices",
+        "info.get",
+        "known_devices.values",
+        "subprocess.run",
+        "result.stdout.splitlines",
+        "line.strip",
+        "line.split",
+        "line.lower",
+        "line.split",
+        "len",
+        "ip_candidate.startswith",
+        "ip_candidate.endswith",
+        "ip_candidate.count",
+        "unknown_ips.append",
+        "speak",
+        "len",
+        "speak",
+        "logging.error",
+        "speak"
+      ]
+    }
+  },
+  "general": {
+    "functions": [
+      "tell_time()",
+      "run_self_test()",
+      "log_and_speak(message, level)",
+      "hello()",
+      "register_intents()"
+    ],
+    "imports": [
+      "core.tts",
+      "logging",
+      "subprocess",
+      "sys",
+      "time"
+    ],
+    "calls": {
+      "tell_time()": [
+        "time.strftime",
+        "logging.info",
+        "speak"
+      ],
+      "run_self_test()": [
+        "log_and_speak",
+        "logging.info",
+        "subprocess.run",
+        "logging.info",
+        "logging.error",
+        "logging.error",
+        "log_and_speak",
+        "logging.error",
+        "speak"
+      ],
+      "log_and_speak(message, level)": [
+        "logging.info",
+        "logging.error",
+        "speak"
+      ],
+      "hello()": [
+        "speak",
+        "print"
+      ]
+    }
+  },
+  "ping": {
+    "functions": [
+      "_is_valid_ip_format(ip_string)",
+      "ping_target(target_identifier)",
+      "register_intents()"
+    ],
+    "imports": [
+      "core.tts",
+      "logging",
+      "modules.device_manager",
+      "os",
+      "platform",
+      "subprocess"
+    ],
+    "calls": {
+      "__module__": [
+        "os.path.join"
+      ],
+      "_is_valid_ip_format(ip_string)": [
+        "ip_string.split",
+        "len",
+        "item.isdigit",
+        "int"
+      ],
+      "ping_target(target_identifier)": [
+        "str",
+        "_is_valid_ip_format",
+        "get_device",
+        "logging.info",
+        "logging.error",
+        "speak",
+        "logging.warning",
+        "speak",
+        "logging.error",
+        "speak",
+        "logging.info",
+        "speak",
+        "platform.system",
+        "subprocess.run",
+        "logging.info",
+        "speak",
+        "logging.error",
+        "speak",
+        "logging.warning",
+        "speak",
+        "logging.warning",
+        "speak",
+        "logging.error",
+        "speak"
+      ]
+    }
+  },
+  "server": {
+    "functions": [
+      "boot_system(system_name)",
+      "start_server(server_name)",
+      "stop_server()",
+      "register_intents()"
+    ],
+    "imports": [
+      "core.tts",
+      "logging",
+      "modules.device_manager",
+      "modules.ping",
+      "modules.wol",
+      "os",
+      "time",
+      "typing"
+    ],
+    "calls": {
+      "__module__": [
+        "os.path.join"
+      ],
+      "boot_system(system_name)": [
+        "get_device",
+        "logging.error",
+        "speak",
+        "logging.info",
+        "speak",
+        "send_wol_packet",
+        "str",
+        "logging.info",
+        "speak"
+      ],
+      "start_server(server_name)": [
+        "logging.info",
+        "speak",
+        "logging.info",
+        "speak",
+        "get_device",
+        "logging.error",
+        "speak",
+        "device.get",
+        "device.get",
+        "logging.info",
+        "send_wol_packet",
+        "str",
+        "speak",
+        "logging.info",
+        "speak",
+        "time.sleep",
+        "logging.info",
+        "ping_target",
+        "logging.warning",
+        "speak",
+        "logging.error",
+        "speak"
+      ],
+      "stop_server()": [
+        "speak"
+      ]
+    }
+  },
+  "shutdown": {
+    "functions": [
+      "_perform_shutdown()",
+      "request_shutdown_confirmation(argument)",
+      "request_assistant_exit()",
+      "register_intents()"
+    ],
+    "imports": [
+      "core.tts",
+      "logging",
+      "os",
+      "platform",
+      "time",
+      "typing"
+    ],
+    "calls": {
+      "_perform_shutdown()": [
+        "platform.system",
+        "logging.info",
+        "speak",
+        "time.sleep",
+        "os.system",
+        "logging.info",
+        "os.system",
+        "logging.info",
+        "os.system",
+        "logging.warning",
+        "speak",
+        "logging.error",
+        "speak"
+      ],
+      "request_shutdown_confirmation(argument)": [
+        "logging.info",
+        "speak"
+      ],
+      "request_assistant_exit()": [
+        "logging.info",
+        "speak",
+        "AssistantExitSignal"
+      ]
+    }
+  },
+  "speedtest": {
+    "functions": [
+      "run_speedtest()",
+      "register_intents()"
+    ],
+    "imports": [
+      "core.tts",
+      "logging",
+      "speedtest"
+    ],
+    "calls": {
+      "run_speedtest()": [
+        "logging.info",
+        "speak",
+        "speedtest.Speedtest",
+        "st.get_best_server",
+        "st.download",
+        "st.upload",
+        "logging.info",
+        "logging.info",
+        "speak",
+        "speak",
+        "logging.error",
+        "speak"
+      ]
+    }
+  },
+  "system_info": {
+    "functions": [
+      "bytes_to_gb(bytes_val)",
+      "format_uptime(seconds)",
+      "get_cpu_usage_speak()",
+      "get_memory_usage_speak()",
+      "get_disk_usage_speak(path_argument)",
+      "get_system_uptime_speak()",
+      "get_system_summary_speak()",
+      "get_cpu_load_speak()",
+      "register_intents()"
+    ],
+    "imports": [
+      "core.tts",
+      "datetime",
+      "logging",
+      "os",
+      "platform",
+      "psutil",
+      "time",
+      "typing"
+    ],
+    "calls": {
+      "format_uptime(seconds)": [
+        "int",
+        "int",
+        "int",
+        "parts.append",
+        "parts.append",
+        "parts.append",
+        "len",
+        "len"
+      ],
+      "get_cpu_usage_speak()": [
+        "psutil.cpu_percent",
+        "speak",
+        "logging.info",
+        "speak",
+        "logging.error",
+        "logging.error",
+        "speak"
+      ],
+      "get_memory_usage_speak()": [
+        "psutil.virtual_memory",
+        "bytes_to_gb",
+        "bytes_to_gb",
+        "speak",
+        "logging.info",
+        "bytes_to_gb",
+        "logging.error",
+        "speak"
+      ],
+      "get_disk_usage_speak(path_argument)": [
+        "platform.system",
+        "logging.info",
+        "logging.info",
+        "os.path.exists",
+        "speak",
+        "logging.error",
+        "psutil.disk_usage",
+        "bytes_to_gb",
+        "bytes_to_gb",
+        "speak",
+        "logging.info",
+        "logging.error",
+        "speak"
+      ],
+      "get_system_uptime_speak()": [
+        "psutil.boot_time",
+        "time.time",
+        "format_uptime",
+        "int",
+        "speak",
+        "logging.info",
+        "datetime.datetime.fromtimestamp",
+        "logging.error",
+        "speak"
+      ],
+      "get_system_summary_speak()": [
+        "speak",
+        "logging.info",
+        "psutil.cpu_percent",
+        "summary_parts.append",
+        "logging.debug",
+        "psutil.virtual_memory",
+        "summary_parts.append",
+        "logging.debug",
+        "platform.system",
+        "os.path.exists",
+        "psutil.disk_usage",
+        "summary_parts.append",
+        "logging.debug",
+        "psutil.boot_time",
+        "time.time",
+        "format_uptime",
+        "int",
+        "summary_parts.append",
+        "logging.debug",
+        "speak",
+        "logging.info",
+        "speak",
+        "logging.error"
+      ],
+      "get_cpu_load_speak()": [
+        "hasattr",
+        "psutil.getloadavg",
+        "logging.info",
+        "speak",
+        "logging.error",
+        "speak",
+        "logging.info",
+        "speak"
+      ]
+    }
+  },
+  "weather": {
+    "functions": [
+      "get_weather_wmo_description(code)",
+      "get_weather(city_name)",
+      "register_intents()"
+    ],
+    "imports": [
+      "core.tts",
+      "json",
+      "logging",
+      "os",
+      "requests"
+    ],
+    "calls": {
+      "get_weather_wmo_description(code)": [
+        "WMO_WEATHER_CODES.get"
+      ],
+      "get_weather(city_name)": [
+        "city_name.strip",
+        "os.environ.get",
+        "logging.info",
+        "city_name.strip",
+        "speak",
+        "logging.info",
+        "speak",
+        "requests.get",
+        "geo_response.raise_for_status",
+        "geo_response.json",
+        "geo_data.get",
+        "len",
+        "location.get",
+        "location.get",
+        "location.get",
+        "logging.info",
+        "speak",
+        "logging.error",
+        "speak",
+        "logging.error",
+        "speak",
+        "logging.error",
+        "speak",
+        "speak",
+        "requests.get",
+        "weather_response.raise_for_status",
+        "weather_response.json",
+        "weather_data.get",
+        "current.get",
+        "current.get",
+        "get_weather_wmo_description",
+        "speak",
+        "logging.info",
+        "speak",
+        "logging.error",
+        "speak",
+        "logging.error",
+        "speak",
+        "logging.error",
+        "speak"
+      ]
+    }
+  },
+  "wol": {
+    "functions": [
+      "is_valid_mac(mac)",
+      "load_systems_config(config_path)",
+      "send_wol_packet(mac_address, tts)",
+      "wake_on_lan(device_name)",
+      "register_intents()"
+    ],
+    "imports": [
+      "core.tts",
+      "json",
+      "logging",
+      "modules.device_manager",
+      "os",
+      "re",
+      "socket",
+      "typing"
+    ],
+    "calls": {
+      "__module__": [
+        "os.path.join"
+      ],
+      "is_valid_mac(mac)": [
+        "bool",
+        "re.match"
+      ],
+      "load_systems_config(config_path)": [
+        "open",
+        "json.load",
+        "logging.error",
+        "speak",
+        "logging.error",
+        "speak"
+      ],
+      "send_wol_packet(mac_address, tts)": [
+        "is_valid_mac",
+        "logging.error",
+        "speak",
+        "bytes.fromhex",
+        "mac_address.replace",
+        "socket.socket",
+        "sock.setsockopt",
+        "sock.sendto",
+        "logging.info",
+        "speak",
+        "logging.error",
+        "speak"
+      ],
+      "wake_on_lan(device_name)": [
+        "get_device",
+        "speak",
+        "logging.error",
+        "send_wol_packet"
+      ]
+    }
+  },
+  "archive_augmented_data": {
+    "functions": [
+      "archive_augmented_files()"
+    ],
+    "imports": [
+      "datetime",
+      "os",
+      "shutil"
+    ],
+    "calls": {
+      "archive_augmented_files()": [
+        "os.makedirs",
+        "datetime.now",
+        "os.path.exists",
+        "os.path.basename",
+        "os.path.join",
+        "shutil.move",
+        "print",
+        "print"
+      ],
+      "__module__": [
+        "archive_augmented_files",
+        "print"
+      ]
+    }
+  },
+  "augment_dictionaries": {
+    "functions": [
+      "augment_dictionary(orig_data)",
+      "main()"
+    ],
+    "imports": [
+      "json",
+      "pathlib"
+    ],
+    "calls": {
+      "__module__": [
+        "Path",
+        "main"
+      ],
+      "augment_dictionary(orig_data)": [
+        "orig_data.copy"
+      ],
+      "main()": [
+        "dict_file.replace",
+        "orig_path.exists",
+        "open",
+        "json.load",
+        "augment_dictionary",
+        "open",
+        "json.dump",
+        "len",
+        "len",
+        "str",
+        "isinstance",
+        "isinstance",
+        "orig_data.copy",
+        "merged.update",
+        "print",
+        "print",
+        "json.dumps",
+        "open",
+        "json.dump",
+        "print"
+      ]
+    }
+  },
+  "augment_intent_dataset": {
+    "functions": [
+      "edit_distance(s1, s2)",
+      "archive_augmented_data_before_augmentation()",
+      "synonym_replace(text)",
+      "model_paraphrase(text)",
+      "generate_paraphrases(text)"
+    ],
+    "imports": [
+      "collections",
+      "json",
+      "modules.contractions",
+      "modules.device_detector",
+      "nltk",
+      "nltk.corpus",
+      "os",
+      "pandas",
+      "spellchecker",
+      "subprocess",
+      "sys",
+      "torch",
+      "tqdm",
+      "transformers"
+    ],
+    "calls": {
+      "__module__": [
+        "os.path.abspath",
+        "os.path.join",
+        "os.path.dirname",
+        "sys.path.insert",
+        "nltk.data.find",
+        "nltk.download",
+        "set",
+        "nltk_words.words",
+        "set",
+        "print",
+        "subprocess.check_call",
+        "print",
+        "subprocess.check_call",
+        "nltk.data.find",
+        "nltk.download",
+        "SpellChecker",
+        "detect_cuda_with_torch",
+        "get_cuda_device_name_with_torch",
+        "detect_cpu_vendor",
+        "torch.device",
+        "round",
+        "torch.cuda.get_device_properties",
+        "str",
+        "print",
+        "locals",
+        "str",
+        "T5Tokenizer.from_pretrained",
+        "T5ForConditionalGeneration.from_pretrained",
+        "t5_model.to",
+        "torch.device",
+        "print",
+        "archive_augmented_data_before_augmentation",
+        "print",
+        "subprocess.run",
+        "os.path.exists",
+        "print",
+        "pd.read_csv",
+        "pd.read_csv",
+        "tqdm",
+        "enumerate",
+        "intent_df.itertuples",
+        "len",
+        "generate_paraphrases",
+        "new_rows.append",
+        "sources.get",
+        "difficulties.get",
+        "sum",
+        "range",
+        "response_text.lower",
+        "new_rows.append",
+        "range",
+        "new_rows.append",
+        "intent_df.iterrows",
+        "defaultdict",
+        "intent_samples.items",
+        "len",
+        "final_rows.extend",
+        "pd.DataFrame",
+        "augmented_df.drop_duplicates",
+        "augmented_df.to_csv",
+        "len",
+        "len",
+        "len",
+        "dict",
+        "Counter",
+        "dict",
+        "Counter",
+        "dict",
+        "Counter",
+        "print",
+        "print",
+        "json.dumps",
+        "open",
+        "json.dump",
+        "print",
+        "print",
+        "os.path.join",
+        "os.path.dirname",
+        "print",
+        "subprocess.run",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print"
+      ],
+      "edit_distance(s1, s2)": [
+        "len",
+        "len",
+        "edit_distance",
+        "len",
+        "len",
+        "range",
+        "len",
+        "enumerate",
+        "enumerate",
+        "current_row.append",
+        "min"
+      ],
+      "archive_augmented_data_before_augmentation()": [
+        "subprocess.run",
+        "print",
+        "print",
+        "print",
+        "print"
+      ],
+      "synonym_replace(text)": [
+        "text.split",
+        "enumerate",
+        "wordnet.synsets",
+        "hasattr",
+        "lemma.lower",
+        "word.lower",
+        "words.copy",
+        "lemma.replace"
+      ],
+      "model_paraphrase(text)": [
+        "t5_tokenizer.encode",
+        "input_ids.to",
+        "t5_model.generate",
+        "set",
+        "t5_tokenizer.decode",
+        "paraphrased.lower",
+        "text.lower",
+        "paraphrases.add",
+        "list"
+      ],
+      "generate_paraphrases(text)": [
+        "set",
+        "paraphrases.add",
+        "normalize_text",
+        "paraphrases.add",
+        "CONTRACTIONS.items",
+        "text.replace",
+        "paraphrases.add",
+        "COMMON_MISSPELLINGS.items",
+        "text.replace",
+        "paraphrases.add",
+        "text.split",
+        "enumerate",
+        "spell.unknown",
+        "spell.correction",
+        "words.copy",
+        "paraphrases.add",
+        "spell.candidates",
+        "set",
+        "edit_distance",
+        "cand.lower",
+        "words.copy",
+        "paraphrases.add",
+        "synonym_replace",
+        "paraphrases.add",
+        "model_paraphrase",
+        "paraphrases.add"
+      ]
+    }
+  },
+  "intent_validator": {
+    "functions": [
+      "validate_intents()"
+    ],
+    "imports": [
+      "modules.retrain_utils",
+      "os",
+      "pandas",
+      "sys",
+      "typing"
+    ],
+    "calls": {
+      "__module__": [
+        "os.path.dirname",
+        "os.path.abspath",
+        "os.path.abspath",
+        "os.path.join",
+        "sys.path.insert",
+        "os.path.abspath",
+        "os.path.join",
+        "os.path.abspath",
+        "os.path.join",
+        "print",
+        "validate_intents",
+        "print",
+        "trigger_model_retraining_async",
+        "print",
+        "print",
+        "validate_intents",
+        "print",
+        "print"
+      ],
+      "validate_intents()": [
+        "print",
+        "pd.read_csv",
+        "pd.read_csv",
+        "set",
+        "set",
+        "print",
+        "validation_messages.append",
+        "print",
+        "validation_messages.append",
+        "validation_messages.append",
+        "print",
+        "print",
+        "print",
+        "print"
+      ]
+    }
+  },
+  "validate_and_clean_sentences": {
+    "functions": [
+      "clean_sentence(text)",
+      "main()"
+    ],
+    "imports": [
+      "argparse",
+      "language_tool_python",
+      "os",
+      "pandas",
+      "tqdm"
+    ],
+    "calls": {
+      "__module__": [
+        "tqdm.pandas",
+        "main"
+      ],
+      "clean_sentence(text)": [
+        "isinstance",
+        "text.strip",
+        "tool.check",
+        "language_tool_python.utils.correct",
+        "print"
+      ],
+      "main()": [
+        "argparse.ArgumentParser",
+        "parser.add_argument",
+        "parser.add_argument",
+        "parser.add_argument",
+        "parser.parse_args",
+        "os.path.exists",
+        "FileNotFoundError",
+        "pd.read_csv",
+        "print",
+        "pd.DataFrame",
+        "print",
+        "ValueError",
+        "language_tool_python.LanguageTool",
+        "print",
+        "len",
+        "len",
+        "print",
+        "min",
+        "changed_df.head",
+        "print",
+        "print",
+        "print",
+        "len",
+        "print",
+        "len",
+        "list",
+        "df.drop",
+        "df.to_csv",
+        "print"
+      ]
+    }
+  },
+  "test_intent_classifier": {
+    "functions": [
+      "sample_csv_data()",
+      "mock_model_path(tmp_path)",
+      "mock_tokenizer()",
+      "mock_joint_model()",
+      "reset_global_state()"
+    ],
+    "imports": [
+      "modules.intent_classifier",
+      "modules.joint_model",
+      "os",
+      "pandas",
+      "pytest",
+      "sys",
+      "torch",
+      "unittest.mock"
+    ],
+    "calls": {
+      "__module__": [
+        "sys.path.insert",
+        "os.path.abspath",
+        "os.path.join",
+        "os.path.dirname"
+      ],
+      "sample_csv_data()": [
+        "pd.DataFrame"
+      ],
+      "mock_model_path(tmp_path)": [
+        "model_dir.mkdir",
+        "str"
+      ],
+      "mock_tokenizer()": [
+        "Mock",
+        "torch.tensor",
+        "torch.tensor"
+      ],
+      "mock_joint_model()": [
+        "Mock",
+        "Mock",
+        "torch.tensor",
+        "torch.tensor",
+        "Mock"
+      ],
+      "reset_global_state()": [
+        "pytest.fixture"
+      ]
+    }
+  },
+  "test_intent_logic": {
+    "functions": [
+      "mock_response_map()",
+      "mock_entities()",
+      "setup_and_teardown()",
+      "test_intent_handler_decorator_registers_function(self)",
+      "test_intent_handler_decorator_returns_original_function(self)",
+      "test_multiple_intent_handlers_registered(self)",
+      "test_get_response_basic_lookup(self, mock_response_map)",
+      "test_get_response_with_formatting(self, mock_response_map)",
+      "test_get_response_missing_key_in_format(self, mock_response_map)",
+      "test_get_response_formatting_error(self, mock_response_map)",
+      "test_get_response_nonexistent_intent(self, mock_response_map)",
+      "test_intent_handlers_registered(self, intent, expected_handler)"
+    ],
+    "imports": [
+      "datetime",
+      "modules.intent_logic",
+      "numpy",
+      "os",
+      "pytest",
+      "sys",
+      "unittest.mock"
+    ],
+    "calls": {
+      "__module__": [
+        "sys.path.insert",
+        "os.path.abspath",
+        "os.path.join",
+        "os.path.dirname",
+        "handle_greeting_intent",
+        "mock_get_response.assert_called_once_with",
+        "mock_tts.assert_called_once_with",
+        "patch",
+        "patch",
+        "pytest.raises",
+        "handle_goodbye_intent",
+        "patch",
+        "patch",
+        "handle_retrain_model_intent",
+        "mock_retrain.assert_called_once",
+        "patch",
+        "patch",
+        "patch",
+        "Exception",
+        "handle_retrain_model_intent",
+        "mock_retrain.assert_called_once",
+        "patch",
+        "patch",
+        "patch",
+        "datetime",
+        "handle_set_reminder_intent",
+        "mock_save.assert_called_once_with",
+        "mock_calendar.assert_called_once_with",
+        "mock_tts.assert_called_once",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "datetime",
+        "datetime",
+        "datetime",
+        "handle_list_reminders_intent",
+        "mock_get_reminders.assert_called_once_with",
+        "mock_tts.assert_called_once",
+        "mock_thread.assert_called_once",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "handle_get_weather_intent",
+        "mock_weather.assert_called_once_with",
+        "mock_tts.assert_called",
+        "patch",
+        "patch",
+        "patch",
+        "process_command",
+        "mock_goodbye_handler.assert_called_once_with",
+        "patch",
+        "patch",
+        "patch",
+        "process_command",
+        "mock_retrain.assert_called_once",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "process_command",
+        "mock_llm.assert_called_once_with",
+        "mock_tts.assert_called_once_with",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "process_command",
+        "mock_get_response.assert_called_with",
+        "mock_tts.assert_called_with",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "np.array",
+        "np.array",
+        "np.array",
+        "handle_start_chat_with_llm",
+        "mock_json_dump.assert_called_once",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "process_command",
+        "mock_goodbye_handler.assert_called_once",
+        "pytest.mark.parametrize",
+        "patch",
+        "patch",
+        "patch",
+        "pytest.raises",
+        "ShutdownSignal",
+        "Exception",
+        "pytest.raises",
+        "handle_greeting_intent",
+        "patch",
+        "patch",
+        "Exception",
+        "patch",
+        "process_command",
+        "patch",
+        "patch",
+        "pytest.main"
+      ],
+      "setup_and_teardown()": [
+        "INTENT_HANDLERS.copy",
+        "INTENT_HANDLERS.clear",
+        "INTENT_HANDLERS.update",
+        "pytest.fixture"
+      ],
+      "test_intent_handler_decorator_registers_function(self)": [
+        "intent_handler"
+      ],
+      "test_intent_handler_decorator_returns_original_function(self)": [
+        "intent_handler"
+      ],
+      "test_multiple_intent_handlers_registered(self)": [
+        "intent_handler",
+        "intent_handler",
+        "len"
+      ],
+      "test_get_response_basic_lookup(self, mock_response_map)": [
+        "get_response",
+        "mock_response_map.get.assert_called_once_with",
+        "patch"
+      ],
+      "test_get_response_with_formatting(self, mock_response_map)": [
+        "get_response",
+        "patch"
+      ],
+      "test_get_response_missing_key_in_format(self, mock_response_map)": [
+        "patch",
+        "get_response",
+        "mock_logger.warning.assert_called_once",
+        "patch"
+      ],
+      "test_get_response_formatting_error(self, mock_response_map)": [
+        "patch",
+        "get_response",
+        "mock_logger.warning.assert_called_once",
+        "patch"
+      ],
+      "test_get_response_nonexistent_intent(self, mock_response_map)": [
+        "get_response",
+        "patch"
+      ],
+      "test_intent_handlers_registered(self, intent, expected_handler)": [
+        "pytest.mark.parametrize"
+      ]
+    }
+  },
+  "test_joint_model": {
+    "functions": [
+      "basic_config()",
+      "invalid_config()",
+      "sample_inputs()",
+      "mock_distilbert_output()",
+      "test_joint_model_output_initialization_empty(self)",
+      "test_joint_model_output_initialization_with_tensors(self)",
+      "test_joint_model_output_inheritance(self)",
+      "test_joint_model_output_dict_access(self)",
+      "test_initialization_with_valid_config(self, basic_config)",
+      "test_initialization_with_invalid_config(self, invalid_config)",
+      "test_initialization_with_missing_intent_labels(self)",
+      "test_initialization_with_missing_slot_labels(self)",
+      "test_initialization_with_custom_dropout(self)",
+      "test_initialization_with_default_dropout(self)",
+      "test_linear_layer_dimensions(self, basic_config)",
+      "test_forward_inference_mode(self, mock_distilbert_class, basic_config, sample_inputs, mock_distilbert_output)",
+      "test_forward_training_mode(self, mock_distilbert_class, basic_config, sample_inputs, mock_distilbert_output)",
+      "test_forward_return_dict_false(self, mock_distilbert_class, basic_config, sample_inputs, mock_distilbert_output)",
+      "test_forward_with_all_optional_args(self, mock_distilbert_class, basic_config, sample_inputs, mock_distilbert_output)",
+      "test_loss_calculation_normal_case(self, mock_distilbert_class, basic_config, mock_distilbert_output)",
+      "test_loss_with_padded_tokens(self, mock_distilbert_class, basic_config, mock_distilbert_output)",
+      "test_loss_with_all_padded_tokens(self, mock_distilbert_class, basic_config, mock_distilbert_output)",
+      "test_loss_with_zero_slot_labels(self, mock_distilbert_class, basic_config, mock_distilbert_output)",
+      "test_no_loss_when_only_intent_labels_provided(self, mock_distilbert_class, basic_config, mock_distilbert_output)",
+      "test_no_loss_when_only_slot_labels_provided(self, mock_distilbert_class, basic_config, mock_distilbert_output)",
+      "test_forward_with_empty_batch(self, mock_distilbert_class, basic_config)",
+      "test_forward_with_single_token_sequence(self, mock_distilbert_class, basic_config)",
+      "test_forward_with_very_long_sequence(self, mock_distilbert_class, basic_config)",
+      "test_model_device_consistency(self, basic_config)",
+      "test_model_parameters_require_grad(self, basic_config)",
+      "test_model_eval_mode(self, basic_config)",
+      "test_model_train_mode(self, basic_config)",
+      "test_complete_training_step(self, mock_distilbert_class, basic_config)",
+      "test_batch_size_consistency(self, mock_distilbert_class, basic_config)",
+      "test_sequence_length_consistency(self, mock_distilbert_class, seq_len, basic_config)",
+      "test_different_label_counts(self, num_intent_labels, num_slot_labels)",
+      "test_model_memory_efficiency(self, basic_config)",
+      "test_model_reproducibility(self, basic_config)",
+      "create_mock_distilbert_instance()",
+      "test_model_string_representation(self, basic_config)",
+      "test_model_parameter_count(self, basic_config)",
+      "test_model_config_access(self, basic_config)",
+      "test_model_submodule_access(self, basic_config)",
+      "test_model_inheritance(self, basic_config)",
+      "test_forward_pass_timing(self, mock_distilbert_class, basic_config)",
+      "test_memory_usage(self, mock_distilbert_class, basic_config)",
+      "teardown_module()"
+    ],
+    "imports": [
+      "gc",
+      "modules.joint_model",
+      "os",
+      "pytest",
+      "sys",
+      "time",
+      "torch",
+      "transformers",
+      "transformers.modeling_outputs",
+      "transformers.utils",
+      "unittest.mock"
+    ],
+    "calls": {
+      "__module__": [
+        "sys.path.insert",
+        "os.path.abspath",
+        "os.path.join",
+        "os.path.dirname"
+      ],
+      "basic_config()": [
+        "DistilBertConfig"
+      ],
+      "invalid_config()": [
+        "DistilBertConfig"
+      ],
+      "sample_inputs()": [
+        "torch.randint",
+        "torch.ones",
+        "torch.randint",
+        "torch.randint"
+      ],
+      "mock_distilbert_output()": [
+        "BaseModelOutput",
+        "torch.FloatTensor",
+        "torch.randn"
+      ],
+      "test_joint_model_output_initialization_empty(self)": [
+        "JointModelOutput"
+      ],
+      "test_joint_model_output_initialization_with_tensors(self)": [
+        "torch.tensor",
+        "torch.randn",
+        "torch.randn",
+        "JointModelOutput",
+        "torch.equal",
+        "torch.equal",
+        "torch.equal"
+      ],
+      "test_joint_model_output_inheritance(self)": [
+        "JointModelOutput",
+        "isinstance"
+      ],
+      "test_joint_model_output_dict_access(self)": [
+        "torch.tensor",
+        "JointModelOutput",
+        "torch.equal",
+        "output.get"
+      ],
+      "test_initialization_with_valid_config(self, basic_config)": [
+        "JointIntentSlotModel",
+        "isinstance",
+        "isinstance",
+        "isinstance",
+        "isinstance"
+      ],
+      "test_initialization_with_invalid_config(self, invalid_config)": [
+        "pytest.raises",
+        "JointIntentSlotModel"
+      ],
+      "test_initialization_with_missing_intent_labels(self)": [
+        "DistilBertConfig",
+        "pytest.raises",
+        "JointIntentSlotModel"
+      ],
+      "test_initialization_with_missing_slot_labels(self)": [
+        "DistilBertConfig",
+        "pytest.raises",
+        "JointIntentSlotModel"
+      ],
+      "test_initialization_with_custom_dropout(self)": [
+        "DistilBertConfig",
+        "JointIntentSlotModel"
+      ],
+      "test_initialization_with_default_dropout(self)": [
+        "DistilBertConfig",
+        "JointIntentSlotModel",
+        "hasattr"
+      ],
+      "test_linear_layer_dimensions(self, basic_config)": [
+        "JointIntentSlotModel"
+      ],
+      "test_forward_inference_mode(self, mock_distilbert_class, basic_config, sample_inputs, mock_distilbert_output)": [
+        "Mock",
+        "JointIntentSlotModel",
+        "model.forward",
+        "isinstance",
+        "patch"
+      ],
+      "test_forward_training_mode(self, mock_distilbert_class, basic_config, sample_inputs, mock_distilbert_output)": [
+        "Mock",
+        "JointIntentSlotModel",
+        "model.forward",
+        "isinstance",
+        "patch"
+      ],
+      "test_forward_return_dict_false(self, mock_distilbert_class, basic_config, sample_inputs, mock_distilbert_output)": [
+        "Mock",
+        "JointIntentSlotModel",
+        "model.forward",
+        "isinstance",
+        "isinstance",
+        "patch"
+      ],
+      "test_forward_with_all_optional_args(self, mock_distilbert_class, basic_config, sample_inputs, mock_distilbert_output)": [
+        "Mock",
+        "JointIntentSlotModel",
+        "model.forward",
+        "torch.ones",
+        "isinstance",
+        "mock_instance.assert_called_once",
+        "patch"
+      ],
+      "test_loss_calculation_normal_case(self, mock_distilbert_class, basic_config, mock_distilbert_output)": [
+        "Mock",
+        "JointIntentSlotModel",
+        "torch.randint",
+        "torch.ones",
+        "torch.randint",
+        "torch.randint",
+        "model.forward",
+        "isinstance",
+        "isinstance",
+        "output.get",
+        "getattr",
+        "loss.item",
+        "patch"
+      ],
+      "test_loss_with_padded_tokens(self, mock_distilbert_class, basic_config, mock_distilbert_output)": [
+        "Mock",
+        "JointIntentSlotModel",
+        "torch.randint",
+        "torch.tensor",
+        "torch.randint",
+        "torch.tensor",
+        "model.forward",
+        "isinstance",
+        "isinstance",
+        "output.get",
+        "getattr",
+        "loss.item",
+        "patch"
+      ],
+      "test_loss_with_all_padded_tokens(self, mock_distilbert_class, basic_config, mock_distilbert_output)": [
+        "Mock",
+        "JointIntentSlotModel",
+        "torch.randint",
+        "torch.zeros",
+        "torch.randint",
+        "torch.full",
+        "model.forward",
+        "isinstance",
+        "isinstance",
+        "output.get",
+        "getattr",
+        "loss.item",
+        "patch"
+      ],
+      "test_loss_with_zero_slot_labels(self, mock_distilbert_class, basic_config, mock_distilbert_output)": [
+        "MagicMock",
+        "DistilBertConfig",
+        "JointIntentSlotModel",
+        "torch.randint",
+        "torch.ones",
+        "torch.randint",
+        "torch.randint",
+        "model.forward",
+        "isinstance",
+        "isinstance",
+        "output.get",
+        "getattr",
+        "loss.item",
+        "patch"
+      ],
+      "test_no_loss_when_only_intent_labels_provided(self, mock_distilbert_class, basic_config, mock_distilbert_output)": [
+        "Mock",
+        "JointIntentSlotModel",
+        "torch.randint",
+        "torch.ones",
+        "torch.randint",
+        "model.forward",
+        "isinstance",
+        "isinstance",
+        "output.get",
+        "getattr",
+        "patch"
+      ],
+      "test_no_loss_when_only_slot_labels_provided(self, mock_distilbert_class, basic_config, mock_distilbert_output)": [
+        "Mock",
+        "JointIntentSlotModel",
+        "torch.randint",
+        "torch.ones",
+        "torch.randint",
+        "model.forward",
+        "isinstance",
+        "isinstance",
+        "output.get",
+        "getattr",
+        "patch"
+      ],
+      "test_forward_with_empty_batch(self, mock_distilbert_class, basic_config)": [
+        "Mock",
+        "BaseModelOutput",
+        "torch.FloatTensor",
+        "torch.empty",
+        "JointIntentSlotModel",
+        "torch.empty",
+        "torch.empty",
+        "model.forward",
+        "isinstance",
+        "patch"
+      ],
+      "test_forward_with_single_token_sequence(self, mock_distilbert_class, basic_config)": [
+        "Mock",
+        "BaseModelOutput",
+        "torch.FloatTensor",
+        "torch.randn",
+        "JointIntentSlotModel",
+        "torch.randint",
+        "torch.ones",
+        "model.forward",
+        "isinstance",
+        "patch"
+      ],
+      "test_forward_with_very_long_sequence(self, mock_distilbert_class, basic_config)": [
+        "Mock",
+        "BaseModelOutput",
+        "torch.FloatTensor",
+        "torch.randn",
+        "JointIntentSlotModel",
+        "torch.randint",
+        "torch.ones",
+        "model.forward",
+        "isinstance",
+        "patch"
+      ],
+      "test_model_device_consistency(self, basic_config)": [
+        "torch.device",
+        "torch.cuda.is_available",
+        "torch.randint",
+        "torch.ones",
+        "patch",
+        "MagicMock",
+        "BaseModelOutput",
+        "torch.FloatTensor",
+        "torch.randn",
+        "JointIntentSlotModel",
+        "model.forward"
+      ],
+      "test_model_parameters_require_grad(self, basic_config)": [
+        "JointIntentSlotModel",
+        "model.named_parameters"
+      ],
+      "test_model_eval_mode(self, basic_config)": [
+        "JointIntentSlotModel",
+        "model.eval"
+      ],
+      "test_model_train_mode(self, basic_config)": [
+        "JointIntentSlotModel",
+        "model.train"
+      ],
+      "test_complete_training_step(self, mock_distilbert_class, basic_config)": [
+        "Mock",
+        "BaseModelOutput",
+        "torch.FloatTensor",
+        "torch.randn",
+        "JointIntentSlotModel",
+        "torch.randint",
+        "torch.ones",
+        "torch.randint",
+        "torch.randint",
+        "model.forward",
+        "isinstance",
+        "isinstance",
+        "output.get",
+        "getattr",
+        "loss.backward",
+        "model.named_parameters",
+        "patch"
+      ],
+      "test_batch_size_consistency(self, mock_distilbert_class, basic_config)": [
+        "Mock",
+        "JointIntentSlotModel",
+        "BaseModelOutput",
+        "torch.FloatTensor",
+        "torch.randn",
+        "torch.randint",
+        "torch.ones",
+        "model.forward",
+        "isinstance",
+        "patch"
+      ],
+      "test_sequence_length_consistency(self, mock_distilbert_class, seq_len, basic_config)": [
+        "Mock",
+        "BaseModelOutput",
+        "torch.FloatTensor",
+        "torch.randn",
+        "JointIntentSlotModel",
+        "torch.randint",
+        "torch.ones",
+        "model.forward",
+        "isinstance",
+        "pytest.mark.parametrize",
+        "patch"
+      ],
+      "test_different_label_counts(self, num_intent_labels, num_slot_labels)": [
+        "DistilBertConfig",
+        "JointIntentSlotModel",
+        "pytest.mark.parametrize"
+      ],
+      "test_model_memory_efficiency(self, basic_config)": [
+        "JointIntentSlotModel",
+        "sum",
+        "p.numel",
+        "model.parameters",
+        "patch",
+        "MagicMock",
+        "range",
+        "BaseModelOutput",
+        "torch.FloatTensor",
+        "torch.randn",
+        "model.forward",
+        "torch.randint",
+        "torch.ones",
+        "sum",
+        "p.numel",
+        "model.parameters"
+      ],
+      "test_model_reproducibility(self, basic_config)": [
+        "torch.manual_seed",
+        "patch",
+        "BaseModelOutput",
+        "torch.FloatTensor",
+        "torch.randn",
+        "torch.manual_seed",
+        "torch.randint",
+        "torch.ones",
+        "torch.manual_seed",
+        "JointIntentSlotModel",
+        "torch.manual_seed",
+        "model1.forward",
+        "torch.manual_seed",
+        "JointIntentSlotModel",
+        "torch.manual_seed",
+        "model2.forward",
+        "isinstance",
+        "isinstance",
+        "out1.get",
+        "out1.get",
+        "getattr",
+        "getattr",
+        "isinstance",
+        "isinstance",
+        "out2.get",
+        "out2.get",
+        "getattr",
+        "getattr",
+        "torch.testing.assert_close",
+        "torch.testing.assert_close"
+      ],
+      "create_mock_distilbert_instance()": [
+        "MagicMock"
+      ],
+      "test_model_string_representation(self, basic_config)": [
+        "JointIntentSlotModel",
+        "str"
+      ],
+      "test_model_parameter_count(self, basic_config)": [
+        "JointIntentSlotModel",
+        "sum",
+        "p.numel",
+        "model.named_parameters",
+        "name.startswith"
+      ],
+      "test_model_config_access(self, basic_config)": [
+        "JointIntentSlotModel"
+      ],
+      "test_model_submodule_access(self, basic_config)": [
+        "JointIntentSlotModel",
+        "hasattr",
+        "hasattr",
+        "hasattr",
+        "hasattr",
+        "isinstance",
+        "isinstance",
+        "isinstance"
+      ],
+      "test_model_inheritance(self, basic_config)": [
+        "JointIntentSlotModel",
+        "isinstance",
+        "hasattr",
+        "hasattr",
+        "hasattr",
+        "hasattr",
+        "hasattr"
+      ],
+      "test_forward_pass_timing(self, mock_distilbert_class, basic_config)": [
+        "Mock",
+        "BaseModelOutput",
+        "torch.FloatTensor",
+        "torch.randn",
+        "JointIntentSlotModel",
+        "torch.randint",
+        "torch.ones",
+        "range",
+        "model.forward",
+        "time.time",
+        "range",
+        "model.forward",
+        "time.time",
+        "patch"
+      ],
+      "test_memory_usage(self, mock_distilbert_class, basic_config)": [
+        "Mock",
+        "BaseModelOutput",
+        "torch.FloatTensor",
+        "torch.randn",
+        "JointIntentSlotModel",
+        "torch.randint",
+        "torch.ones",
+        "range",
+        "model.forward",
+        "torch.cuda.is_available",
+        "torch.cuda.empty_cache",
+        "patch"
+      ],
+      "teardown_module()": [
+        "gc.collect",
+        "torch.cuda.is_available",
+        "torch.cuda.empty_cache"
+      ]
+    }
+  },
+  "test_model_training": {
+    "functions": [
+      "temp_dir()",
+      "sample_dataset_csv(temp_dir)",
+      "empty_dataset_csv(temp_dir)",
+      "malformed_dataset_csv(temp_dir)",
+      "test_fine_tune_model_with_valid_dataset_succeeds(self, mock_trainer, mock_model, mock_config, mock_tokenizer, mock_load_dataset, sample_dataset_csv, temp_dir)",
+      "test_fine_tune_model_creates_correct_label_mappings(self, mock_trainer, mock_model, mock_config, mock_tokenizer, mock_load_dataset, sample_dataset_csv, temp_dir)",
+      "test_fine_tune_model_with_empty_dataset_handles_gracefully(self, mock_load_dataset, empty_dataset_csv, temp_dir)",
+      "test_fine_tune_model_with_single_label_dataset(self, mock_config, mock_tokenizer, mock_load_dataset, temp_dir)",
+      "test_fine_tune_model_with_malformed_entities_json(self, mock_load_dataset, temp_dir)",
+      "test_fine_tune_model_with_nonexistent_dataset_raises_error(self, temp_dir)",
+      "test_fine_tune_model_with_missing_required_columns_raises_error(self, mock_load_dataset, malformed_dataset_csv, temp_dir)",
+      "test_fine_tune_model_with_invalid_model_save_path_raises_error(self, mock_load_dataset, sample_dataset_csv)",
+      "test_fine_tune_model_with_trainer_failure_raises_error(self, mock_model, mock_config, mock_tokenizer, mock_load_dataset, sample_dataset_csv, temp_dir)",
+      "test_fine_tune_model_with_unsupported_dataset_type_raises_error(self, mock_load_dataset, sample_dataset_csv, temp_dir)",
+      "test_fine_tune_model_cpu_only_training(self, mock_trainer, mock_model, mock_config, mock_tokenizer, mock_load_dataset, mock_cuda, sample_dataset_csv, temp_dir)",
+      "test_fine_tune_model_creates_directory_structure(self, mock_trainer, mock_model, mock_config, mock_tokenizer, mock_load_dataset, sample_dataset_csv, temp_dir)",
+      "test_process_data_for_joint_model_with_valid_entities(self)",
+      "test_entity_to_slot_label_conversion(self, entity_json, expected_slots)",
+      "test_main_function_with_valid_arguments(self, mock_isfile, mock_fine_tune)",
+      "test_main_function_with_nonexistent_dataset(self, mock_isfile)",
+      "test_normalize_text_integration(self)",
+      "test_training_arguments_configuration(self)",
+      "test_model_config_setup(self)",
+      "test_all_public_functions_have_tests(self)",
+      "test_training_completes_within_time_limit(self)",
+      "test_memory_usage_during_training(self)"
+    ],
+    "imports": [
+      "datasets",
+      "inspect",
+      "modules.model_training",
+      "os",
+      "pandas",
+      "pytest",
+      "shutil",
+      "sys",
+      "tempfile",
+      "unittest.mock"
+    ],
+    "calls": {
+      "__module__": [
+        "sys.path.insert",
+        "os.path.abspath",
+        "os.path.join",
+        "os.path.dirname"
+      ],
+      "temp_dir()": [
+        "tempfile.mkdtemp",
+        "shutil.rmtree"
+      ],
+      "sample_dataset_csv(temp_dir)": [
+        "pd.DataFrame",
+        "os.path.join",
+        "df.to_csv"
+      ],
+      "empty_dataset_csv(temp_dir)": [
+        "pd.DataFrame",
+        "os.path.join",
+        "df.to_csv"
+      ],
+      "malformed_dataset_csv(temp_dir)": [
+        "pd.DataFrame",
+        "os.path.join",
+        "df.to_csv"
+      ],
+      "test_fine_tune_model_with_valid_dataset_succeeds(self, mock_trainer, mock_model, mock_config, mock_tokenizer, mock_load_dataset, sample_dataset_csv, temp_dir)": [
+        "MagicMock",
+        "MagicMock",
+        "Mock",
+        "Mock",
+        "Mock",
+        "Mock",
+        "os.path.join",
+        "fine_tune_model",
+        "mock_load_dataset.assert_called_once_with",
+        "mock_trainer_instance.train.assert_called_once",
+        "mock_model_instance.save_pretrained.assert_called_once_with",
+        "mock_tokenizer_instance.save_pretrained.assert_called_once_with",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "patch"
+      ],
+      "test_fine_tune_model_creates_correct_label_mappings(self, mock_trainer, mock_model, mock_config, mock_tokenizer, mock_load_dataset, sample_dataset_csv, temp_dir)": [
+        "MagicMock",
+        "MagicMock",
+        "Mock",
+        "Mock",
+        "Mock",
+        "Mock",
+        "os.path.join",
+        "fine_tune_model",
+        "hasattr",
+        "hasattr",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "patch"
+      ],
+      "test_fine_tune_model_with_empty_dataset_handles_gracefully(self, mock_load_dataset, empty_dataset_csv, temp_dir)": [
+        "MagicMock",
+        "MagicMock",
+        "os.path.join",
+        "patch",
+        "pytest.raises",
+        "fine_tune_model",
+        "patch"
+      ],
+      "test_fine_tune_model_with_single_label_dataset(self, mock_config, mock_tokenizer, mock_load_dataset, temp_dir)": [
+        "pd.DataFrame",
+        "os.path.join",
+        "df.to_csv",
+        "MagicMock",
+        "MagicMock",
+        "Mock",
+        "Mock",
+        "os.path.join",
+        "patch",
+        "patch",
+        "fine_tune_model",
+        "patch",
+        "patch",
+        "patch"
+      ],
+      "test_fine_tune_model_with_malformed_entities_json(self, mock_load_dataset, temp_dir)": [
+        "pd.DataFrame",
+        "os.path.join",
+        "df.to_csv",
+        "MagicMock",
+        "MagicMock",
+        "os.path.join",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "fine_tune_model",
+        "mock_print.assert_called",
+        "patch"
+      ],
+      "test_fine_tune_model_with_nonexistent_dataset_raises_error(self, temp_dir)": [
+        "os.path.join",
+        "os.path.join",
+        "pytest.raises",
+        "fine_tune_model"
+      ],
+      "test_fine_tune_model_with_missing_required_columns_raises_error(self, mock_load_dataset, malformed_dataset_csv, temp_dir)": [
+        "os.path.join",
+        "MagicMock",
+        "MagicMock",
+        "pytest.raises",
+        "fine_tune_model",
+        "patch"
+      ],
+      "test_fine_tune_model_with_invalid_model_save_path_raises_error(self, mock_load_dataset, sample_dataset_csv)": [
+        "MagicMock",
+        "MagicMock",
+        "patch",
+        "OSError",
+        "pytest.raises",
+        "fine_tune_model",
+        "patch"
+      ],
+      "test_fine_tune_model_with_trainer_failure_raises_error(self, mock_model, mock_config, mock_tokenizer, mock_load_dataset, sample_dataset_csv, temp_dir)": [
+        "MagicMock",
+        "MagicMock",
+        "Mock",
+        "Mock",
+        "Mock",
+        "patch",
+        "Mock",
+        "RuntimeError",
+        "os.path.join",
+        "pytest.raises",
+        "fine_tune_model",
+        "patch",
+        "patch",
+        "patch",
+        "patch"
+      ],
+      "test_fine_tune_model_with_unsupported_dataset_type_raises_error(self, mock_load_dataset, sample_dataset_csv, temp_dir)": [
+        "os.path.join",
+        "pytest.raises",
+        "fine_tune_model",
+        "patch"
+      ],
+      "test_fine_tune_model_cpu_only_training(self, mock_trainer, mock_model, mock_config, mock_tokenizer, mock_load_dataset, mock_cuda, sample_dataset_csv, temp_dir)": [
+        "MagicMock",
+        "MagicMock",
+        "Mock",
+        "Mock",
+        "Mock",
+        "Mock",
+        "os.path.join",
+        "fine_tune_model",
+        "mock_trainer.assert_called_once",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "patch"
+      ],
+      "test_fine_tune_model_creates_directory_structure(self, mock_trainer, mock_model, mock_config, mock_tokenizer, mock_load_dataset, sample_dataset_csv, temp_dir)": [
+        "MagicMock",
+        "MagicMock",
+        "Mock",
+        "Mock",
+        "Mock",
+        "Mock",
+        "os.path.join",
+        "fine_tune_model",
+        "os.path.exists",
+        "os.path.exists",
+        "os.path.join",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "patch"
+      ],
+      "test_entity_to_slot_label_conversion(self, entity_json, expected_slots)": [
+        "pytest.mark.parametrize"
+      ],
+      "test_main_function_with_valid_arguments(self, mock_isfile, mock_fine_tune)": [
+        "pytest.skip",
+        "patch",
+        "patch",
+        "patch"
+      ],
+      "test_main_function_with_nonexistent_dataset(self, mock_isfile)": [
+        "pytest.skip",
+        "patch",
+        "patch"
+      ],
+      "test_all_public_functions_have_tests(self)": [
+        "inspect.getmembers",
+        "inspect.isclass",
+        "name.startswith",
+        "inspect.getmembers",
+        "inspect.isfunction",
+        "method_name.startswith",
+        "test_methods.append",
+        "len",
+        "len",
+        "len"
+      ],
+      "test_training_completes_within_time_limit(self)": [
+        "pytest.mark.timeout"
+      ]
+    }
+  },
+  "test_reminder_utils": {
+    "functions": [
+      "mock_datetime()",
+      "sample_entities()",
+      "test_parse_time_basic_formats(self, mock_datetime)",
+      "test_parse_time_relative_formats(self, mock_datetime)",
+      "test_parse_time_default_values(self, mock_datetime)",
+      "test_parse_time_invalid_inputs(self)",
+      "test_parse_time_edge_cases(self, mock_datetime)",
+      "test_parse_date_basic_references(self, mock_dt, mock_datetime)",
+      "test_parse_date_week_references(self, mock_dt, mock_datetime)",
+      "test_parse_date_day_of_week(self, mock_dt, mock_datetime)",
+      "test_parse_date_all_weekdays(self, mock_dt, mock_datetime, day_name, expected_offset)",
+      "test_parse_date_invalid_inputs(self)",
+      "test_parse_date_case_insensitive(self, mock_dt, mock_datetime)",
+      "test_parse_reminder_with_entities(self, mock_dt, mock_datetime)",
+      "test_parse_reminder_with_date_reference_and_time(self, mock_dt, mock_datetime)",
+      "test_parse_reminder_fallback_to_regex(self, mock_dt, mock_datetime)",
+      "test_parse_reminder_regex_patterns(self, mock_dt, mock_datetime)",
+      "test_parse_reminder_task_extraction(self, mock_dt, mock_datetime, text, expected_task)",
+      "test_parse_reminder_invalid_inputs(self)",
+      "test_parse_reminder_edge_cases(self, mock_dt, mock_datetime)",
+      "test_parse_reminder_relative_time_units(self, mock_dt, mock_datetime)",
+      "test_parse_list_reminder_with_entities(self, mock_dt, mock_datetime)",
+      "test_parse_list_reminder_basic_dates(self, mock_dt, mock_datetime)",
+      "test_parse_list_reminder_relative_dates(self, mock_dt, mock_datetime)",
+      "test_parse_list_reminder_weekdays(self, mock_dt, mock_datetime)",
+      "test_parse_list_reminder_next_this_modifiers(self, mock_dt, mock_datetime)",
+      "test_parse_list_reminder_month_dates(self, mock_dt, mock_datetime)",
+      "test_parse_list_reminder_formatted_dates(self, mock_dt, mock_datetime)",
+      "test_parse_list_reminder_all_months(self, mock_dt, mock_datetime, month_name, month_num)",
+      "test_parse_list_reminder_invalid_inputs(self)",
+      "test_parse_list_reminder_case_insensitive(self, mock_dt, mock_datetime)",
+      "test_parse_list_reminder_edge_cases(self, mock_dt, mock_datetime)",
+      "test_reminder_parsing_integration(self, mock_dt, mock_datetime)",
+      "test_entity_vs_regex_consistency(self, mock_dt, mock_datetime)",
+      "test_performance_large_text_input(self)",
+      "test_memory_usage_stress_test(self)",
+      "test_concurrent_parsing_safety(self, mock_dt, mock_datetime)",
+      "worker(idx)",
+      "test_malformed_input_handling(self)",
+      "test_unicode_and_special_characters(self)",
+      "test_timezone_awareness(self)",
+      "reset_datetime_mock()",
+      "test_module_imports()",
+      "test_function_signatures()"
+    ],
+    "imports": [
+      "datetime",
+      "gc",
+      "inspect",
+      "modules.reminder_utils",
+      "os",
+      "pytest",
+      "sys",
+      "threading",
+      "time",
+      "unittest.mock"
+    ],
+    "calls": {
+      "__module__": [
+        "sys.path.insert",
+        "os.path.join",
+        "os.path.dirname",
+        "pytest.main"
+      ],
+      "mock_datetime()": [
+        "dt_class"
+      ],
+      "test_parse_time_basic_formats(self, mock_datetime)": [
+        "_parse_time_from_entities_text",
+        "_parse_time_from_entities_text",
+        "_parse_time_from_entities_text"
+      ],
+      "test_parse_time_relative_formats(self, mock_datetime)": [
+        "_parse_time_from_entities_text",
+        "timedelta",
+        "_parse_time_from_entities_text",
+        "timedelta"
+      ],
+      "test_parse_time_default_values(self, mock_datetime)": [
+        "_parse_time_from_entities_text",
+        "timedelta",
+        "_parse_time_from_entities_text",
+        "mock_datetime.replace"
+      ],
+      "test_parse_time_invalid_inputs(self)": [
+        "_parse_time_from_entities_text",
+        "_parse_time_from_entities_text",
+        "_parse_time_from_entities_text"
+      ],
+      "test_parse_time_edge_cases(self, mock_datetime)": [
+        "_parse_time_from_entities_text",
+        "_parse_time_from_entities_text",
+        "_parse_time_from_entities_text"
+      ],
+      "test_parse_date_basic_references(self, mock_dt, mock_datetime)": [
+        "_parse_date_from_entities_text",
+        "mock_datetime.date",
+        "_parse_date_from_entities_text",
+        "mock_datetime.date",
+        "timedelta",
+        "_parse_date_from_entities_text",
+        "mock_datetime.date",
+        "timedelta",
+        "patch"
+      ],
+      "test_parse_date_week_references(self, mock_dt, mock_datetime)": [
+        "_parse_date_from_entities_text",
+        "mock_datetime.date",
+        "timedelta",
+        "_parse_date_from_entities_text",
+        "mock_datetime.date",
+        "patch"
+      ],
+      "test_parse_date_day_of_week(self, mock_dt, mock_datetime)": [
+        "_parse_date_from_entities_text",
+        "mock_datetime.date",
+        "timedelta",
+        "_parse_date_from_entities_text",
+        "mock_datetime.date",
+        "timedelta",
+        "_parse_date_from_entities_text",
+        "mock_datetime.date",
+        "timedelta",
+        "patch"
+      ],
+      "test_parse_date_all_weekdays(self, mock_dt, mock_datetime, day_name, expected_offset)": [
+        "_parse_date_from_entities_text",
+        "mock_datetime.date",
+        "mock_datetime.date",
+        "timedelta",
+        "pytest.mark.parametrize",
+        "patch"
+      ],
+      "test_parse_date_invalid_inputs(self)": [
+        "_parse_date_from_entities_text",
+        "_parse_date_from_entities_text",
+        "_parse_date_from_entities_text"
+      ],
+      "test_parse_date_case_insensitive(self, mock_dt, mock_datetime)": [
+        "_parse_date_from_entities_text",
+        "mock_datetime.date",
+        "_parse_date_from_entities_text",
+        "mock_datetime.date",
+        "timedelta",
+        "_parse_date_from_entities_text",
+        "mock_datetime.date",
+        "timedelta",
+        "_parse_date_from_entities_text",
+        "mock_datetime.date",
+        "patch"
+      ],
+      "test_parse_reminder_with_entities(self, mock_dt, mock_datetime)": [
+        "dt_class.strptime",
+        "dt_class.combine",
+        "parse_reminder",
+        "mock_datetime.date",
+        "timedelta",
+        "patch"
+      ],
+      "test_parse_reminder_with_date_reference_and_time(self, mock_dt, mock_datetime)": [
+        "dt_class.strptime",
+        "dt_class.combine",
+        "parse_reminder",
+        "mock_datetime.date",
+        "timedelta",
+        "patch"
+      ],
+      "test_parse_reminder_fallback_to_regex(self, mock_dt, mock_datetime)": [
+        "dt_class.strptime",
+        "dt_class.combine",
+        "parse_reminder",
+        "mock_datetime.date",
+        "timedelta",
+        "patch"
+      ],
+      "test_parse_reminder_regex_patterns(self, mock_dt, mock_datetime)": [
+        "dt_class.strptime",
+        "dt_class.combine",
+        "parse_reminder",
+        "parse_reminder",
+        "parse_reminder",
+        "timedelta",
+        "patch"
+      ],
+      "test_parse_reminder_task_extraction(self, mock_dt, mock_datetime, text, expected_task)": [
+        "dt_class.strptime",
+        "dt_class.combine",
+        "parse_reminder",
+        "pytest.mark.parametrize",
+        "patch"
+      ],
+      "test_parse_reminder_invalid_inputs(self)": [
+        "parse_reminder",
+        "parse_reminder",
+        "parse_reminder",
+        "parse_reminder"
+      ],
+      "test_parse_reminder_edge_cases(self, mock_dt, mock_datetime)": [
+        "dt_class.strptime",
+        "dt_class.combine",
+        "parse_reminder",
+        "mock_datetime.date",
+        "timedelta",
+        "parse_reminder",
+        "mock_datetime.date",
+        "patch"
+      ],
+      "test_parse_reminder_relative_time_units(self, mock_dt, mock_datetime)": [
+        "timedelta",
+        "timedelta",
+        "timedelta",
+        "timedelta",
+        "timedelta",
+        "timedelta",
+        "timedelta",
+        "parse_reminder",
+        "patch"
+      ],
+      "test_parse_list_reminder_with_entities(self, mock_dt, mock_datetime)": [
+        "parse_list_reminder_request",
+        "mock_datetime.date",
+        "timedelta",
+        "patch"
+      ],
+      "test_parse_list_reminder_basic_dates(self, mock_dt, mock_datetime)": [
+        "parse_list_reminder_request",
+        "parse_list_reminder_request",
+        "mock_datetime.date",
+        "parse_list_reminder_request",
+        "parse_list_reminder_request",
+        "mock_datetime.date",
+        "timedelta",
+        "parse_list_reminder_request",
+        "parse_list_reminder_request",
+        "mock_datetime.date",
+        "timedelta",
+        "patch"
+      ],
+      "test_parse_list_reminder_relative_dates(self, mock_dt, mock_datetime)": [
+        "parse_list_reminder_request",
+        "parse_list_reminder_request",
+        "mock_datetime.date",
+        "timedelta",
+        "parse_list_reminder_request",
+        "parse_list_reminder_request",
+        "mock_datetime.date",
+        "timedelta",
+        "parse_list_reminder_request",
+        "parse_list_reminder_request",
+        "mock_datetime.date",
+        "timedelta",
+        "patch"
+      ],
+      "test_parse_list_reminder_weekdays(self, mock_dt, mock_datetime)": [
+        "parse_list_reminder_request",
+        "mock_datetime.date",
+        "timedelta",
+        "patch"
+      ],
+      "test_parse_list_reminder_next_this_modifiers(self, mock_dt, mock_datetime)": [
+        "parse_list_reminder_request",
+        "parse_list_reminder_request",
+        "mock_datetime.date",
+        "timedelta",
+        "parse_list_reminder_request",
+        "parse_list_reminder_request",
+        "mock_datetime.date",
+        "timedelta",
+        "parse_list_reminder_request",
+        "parse_list_reminder_request",
+        "mock_datetime.date",
+        "timedelta",
+        "patch"
+      ],
+      "test_parse_list_reminder_month_dates(self, mock_dt, mock_datetime)": [
+        "dt_class.strptime",
+        "parse_list_reminder_request",
+        "parse_list_reminder_request",
+        "date",
+        "parse_list_reminder_request",
+        "parse_list_reminder_request",
+        "date",
+        "parse_list_reminder_request",
+        "parse_list_reminder_request",
+        "date",
+        "patch"
+      ],
+      "test_parse_list_reminder_formatted_dates(self, mock_dt, mock_datetime)": [
+        "dt_class.strptime",
+        "parse_list_reminder_request",
+        "parse_list_reminder_request",
+        "date",
+        "parse_list_reminder_request",
+        "parse_list_reminder_request",
+        "date",
+        "patch"
+      ],
+      "test_parse_list_reminder_all_months(self, mock_dt, mock_datetime, month_name, month_num)": [
+        "dt_class.strptime",
+        "parse_list_reminder_request",
+        "date",
+        "pytest.mark.parametrize",
+        "patch"
+      ],
+      "test_parse_list_reminder_invalid_inputs(self)": [
+        "parse_list_reminder_request",
+        "parse_list_reminder_request",
+        "parse_list_reminder_request",
+        "parse_list_reminder_request"
+      ],
+      "test_parse_list_reminder_case_insensitive(self, mock_dt, mock_datetime)": [
+        "parse_list_reminder_request",
+        "parse_list_reminder_request",
+        "mock_datetime.date",
+        "parse_list_reminder_request",
+        "parse_list_reminder_request",
+        "mock_datetime.date",
+        "timedelta",
+        "parse_list_reminder_request",
+        "parse_list_reminder_request",
+        "mock_datetime.date",
+        "timedelta",
+        "patch"
+      ],
+      "test_parse_list_reminder_edge_cases(self, mock_dt, mock_datetime)": [
+        "dt_class.strptime",
+        "parse_list_reminder_request",
+        "parse_list_reminder_request",
+        "date",
+        "parse_list_reminder_request",
+        "parse_list_reminder_request",
+        "date",
+        "parse_list_reminder_request",
+        "parse_list_reminder_request",
+        "date",
+        "parse_list_reminder_request",
+        "parse_list_reminder_request",
+        "date",
+        "patch"
+      ],
+      "test_reminder_parsing_integration(self, mock_dt, mock_datetime)": [
+        "dt_class.combine",
+        "dt_class.strptime",
+        "parse_reminder",
+        "parse_list_reminder_request",
+        "patch"
+      ],
+      "test_entity_vs_regex_consistency(self, mock_dt, mock_datetime)": [
+        "dt_class.combine",
+        "dt_class.strptime",
+        "parse_reminder",
+        "parse_reminder",
+        "patch"
+      ],
+      "test_performance_large_text_input(self)": [
+        "time.time",
+        "parse_reminder",
+        "time.time"
+      ],
+      "test_memory_usage_stress_test(self)": [
+        "gc.collect",
+        "range",
+        "parse_reminder",
+        "parse_list_reminder_request",
+        "gc.collect"
+      ],
+      "test_concurrent_parsing_safety(self, mock_dt, mock_datetime)": [
+        "dt_class.combine",
+        "dt_class.strptime",
+        "threading.Thread",
+        "range",
+        "t.start",
+        "t.join",
+        "len",
+        "patch"
+      ],
+      "worker(idx)": [
+        "parse_reminder",
+        "results.append"
+      ],
+      "test_malformed_input_handling(self)": [
+        "parse_reminder",
+        "isinstance",
+        "pytest.fail"
+      ],
+      "test_unicode_and_special_characters(self)": [
+        "parse_reminder",
+        "isinstance",
+        "pytest.fail"
+      ],
+      "test_timezone_awareness(self)": [
+        "parse_reminder"
+      ],
+      "reset_datetime_mock()": [
+        "pytest.fixture"
+      ],
+      "test_module_imports()": [
+        "pytest.fail"
+      ],
+      "test_function_signatures()": [
+        "inspect.signature",
+        "inspect.signature"
+      ]
+    }
+  },
+  "test_weather_service": {
+    "functions": [
+      "mock_api_key()",
+      "mock_aiohttp_get()",
+      "mock_weather_success_payload()",
+      "mock_ip_geo_success_payload()",
+      "mock_ip_geo_failure_payload()"
+    ],
+    "imports": [
+      "aiohttp",
+      "json",
+      "modules.weather_service",
+      "os",
+      "pytest",
+      "sys",
+      "unittest.mock"
+    ],
+    "calls": {
+      "__module__": [
+        "sys.path.insert",
+        "os.path.abspath",
+        "os.path.join",
+        "os.path.dirname",
+        "get_weather_async",
+        "mock_get.assert_called_once_with",
+        "isinstance",
+        "get_weather_async",
+        "mock_get.assert_called_once_with",
+        "isinstance",
+        "get_weather_async",
+        "mock_get.assert_called_once_with",
+        "isinstance",
+        "get_weather_async",
+        "mock_get.assert_called_once_with",
+        "isinstance",
+        "get_weather_async",
+        "mock_get_coords.assert_called_once",
+        "mock_get.assert_called_once_with",
+        "isinstance",
+        "patch",
+        "get_weather_async",
+        "mock_get_coords.assert_called_once",
+        "mock_get.assert_not_called",
+        "isinstance",
+        "patch",
+        "get_weather_async",
+        "mock_get.assert_not_called",
+        "isinstance",
+        "patch",
+        "get_weather_async",
+        "mock_get.assert_not_called",
+        "isinstance",
+        "MagicMock",
+        "aiohttp.ClientResponseError",
+        "get_weather_async",
+        "isinstance",
+        "MagicMock",
+        "aiohttp.ClientResponseError",
+        "get_weather_async",
+        "MagicMock",
+        "aiohttp.ClientResponseError",
+        "get_weather_async",
+        "OSError",
+        "MagicMock",
+        "aiohttp.ClientConnectorError",
+        "get_weather_async",
+        "MagicMock",
+        "MagicMock",
+        "aiohttp.ContentTypeError",
+        "get_weather_async",
+        "get_weather_async",
+        "patch",
+        "get_weather_async",
+        "mock_get.assert_not_called",
+        "isinstance",
+        "get_current_location_coordinates_async",
+        "mock_get.assert_called_once_with",
+        "get_current_location_coordinates_async",
+        "mock_get.assert_called_once_with",
+        "aiohttp.ClientResponseError",
+        "Mock",
+        "get_current_location_coordinates_async",
+        "mock_get.assert_called_once_with",
+        "aiohttp.ClientConnectorError",
+        "Mock",
+        "Mock",
+        "get_current_location_coordinates_async",
+        "mock_get.assert_called_once_with",
+        "json.JSONDecodeError",
+        "get_current_location_coordinates_async",
+        "mock_get.assert_called_once_with",
+        "get_current_location_coordinates_async",
+        "mock_get.assert_called_once_with",
+        "patch",
+        "initialize_weather_service",
+        "mock_print.assert_any_call",
+        "os.path.join",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "initialize_weather_service",
+        "mock_get_key.assert_called_once",
+        "mock_print.assert_any_call",
+        "patch",
+        "patch",
+        "patch",
+        "MagicMock",
+        "patch",
+        "initialize_weather_service",
+        "mock_get_key.assert_called_once",
+        "mock_exists.assert_called_once",
+        "mock_open.assert_called_once_with",
+        "os.path.join",
+        "mock_print.assert_any_call",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "MagicMock",
+        "patch",
+        "initialize_weather_service",
+        "mock_get_key.assert_called_once",
+        "mock_exists.assert_called_once",
+        "mock_open.assert_called_once_with",
+        "os.path.join",
+        "mock_print.assert_any_call",
+        "patch",
+        "patch",
+        "patch",
+        "patch",
+        "os.path.dirname",
+        "os.path.abspath",
+        "os.path.dirname",
+        "os.path.dirname",
+        "GRANDPARENT_DIR.endswith",
+        "os.path.abspath",
+        "os.path.join",
+        "os.path.dirname"
+      ],
+      "mock_api_key()": [
+        "patch",
+        "initialize_weather_service",
+        "pytest.fixture"
+      ],
+      "mock_aiohttp_get()": [
+        "patch",
+        "MagicMock",
+        "MagicMock",
+        "AsyncMock"
+      ]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+prettytable
+networkx
+pyvis
+openai
+requests
+tenacity
+python-dotenv
